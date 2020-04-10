@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message: MyText
+  timestamp_in_seconds: 1
+  tag: MyString
+
+two:
+  message: MyText
+  timestamp_in_seconds: 1
+  tag: MyString
