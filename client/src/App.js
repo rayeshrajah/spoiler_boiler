@@ -7,11 +7,16 @@ import VideoPlayer from './components/VideoPlayer'
 function App() {
   const [state, setState] = useState(
     {
-      users: {},
-      videos: {},
-      comments: {}
+      users: [],
+      videos: [],
+      comments: [],
+      isLoading: true
     }
     )
+    const {users, videos, comments, isLoading} = state
+    let commentTimestamps = [];
+    comments.forEach(comment => commentTimestamps.push(comment.timestamp_in_seconds))
+
     
     useEffect(() => {
       const userApi = axios.get('/users')
@@ -19,17 +24,21 @@ function App() {
       const commentApi = axios.get('/comments')
       
       Promise.all([userApi, videoApi, commentApi])
-      .then(all => setState(() => ({
+      .then(all => setState({
         users: all[0].data, 
         videos: all[1].data, 
-        comments: all[2].data})))
+        comments: all[2].data,
+        isLoading: false
+        }))
       },[])
-    
-  return (
-    <div>
-      <VideoPlayer />
-    </div>
-  );
+  
+
+    return (
+      <div>
+        {!isLoading && <VideoPlayer commentTimestamps={commentTimestamps}/>}
+      </div>
+    );
+
 }
 
 export default App;

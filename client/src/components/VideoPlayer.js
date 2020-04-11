@@ -2,9 +2,12 @@ import React, { useState, useRef } from 'react'
 import ReactPlayer from 'react-player'
 import '../styles/VideoPlayer.scss'
  
-function VideoPlayer() {
-  const [state, setState] = useState("")
+function VideoPlayer(props) {
+  const [progress, setProgress] = useState("")
+  const [timestamp, setTimestamp] = useState(props)
   const reactPlayerLib = useRef(null)
+
+  // console.log(props)
 
   return (
     <div className="video-master">
@@ -15,15 +18,16 @@ function VideoPlayer() {
           url='https://www.youtube.com/watch?v=ysz5S6PUM-U' 
           playing 
           controls
-          onProgress={(obj) => setState(Math.floor(obj.played * 100) + "%")}
+          onProgress={(obj) => setProgress(Math.floor(obj.played * 100) + "%")}
+          onDuration={(duration) => console.log(duration)}
         />
-        {console.log(state)}
       </div>
       <div className="spoiler-timebar-master">
         <div className="spoiler-bar">
-          <div className="spoiler-time" style={{width: String(state)}}></div>
+          <div className="spoiler-time" style={{width: String(progress)}}></div>
         </div>
       </div>
+      <div></div>
     </div>
   )
 }
