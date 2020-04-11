@@ -1,4 +1,21 @@
 @import './Variables.scss';
 
-#logo-text {color: $pink-color}
+
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#logo-text {
+    color: $pink-color;
+    }
+
+#nav-user-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+            
 
