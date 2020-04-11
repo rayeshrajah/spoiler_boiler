@@ -10,7 +10,7 @@ export default function Navbar(){
     }
     return(
     <div>
-    <nav class="navbar navbar-light bg-light" id="navbar">
+    <nav class="navbar nav" id="navbar">
     <a class="navbar-brand" id="logo-text">SpoilerBoiler</a>
     <div id="nav-user-info">
     <a><Button login onClick={console.log('')}>Login</Button></a>
