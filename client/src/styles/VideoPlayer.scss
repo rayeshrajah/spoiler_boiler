@@ -8,6 +8,7 @@
     width: 100%;
     max-width: 500px;
     position: relative;
+    overflow: hidden;
     
     .video {
       width: 100%;
@@ -19,9 +20,9 @@
       bottom: 0;
       width: 100%;
       flex-wrap: wrap;
-      background-color: #00000070;
-
-
+      background-color: #000000c9;
+      transform: translateY(100%) translateY(-5px);
+      transition: all 0.2s;
 
       .buttons button {
         background: none;
@@ -53,13 +54,17 @@
         top: 0;
         left: 0;
         width: 100%;
+        background-color: black;
 
         .timeline-bar {
           height: 10px;
-          width: 100px;
+          width: 0%;
           background-color: #FFCECE;
         }
       }
     }
+  }
+  .video-container:hover .controls {
+    transform: translateY(0);
   }
 }
