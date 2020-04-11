@@ -1,14 +1,9 @@
 import React from 'react'
 
-export default function Navbar(props){
+export default function Navbar(){
     return(
-        <ul>
-         <li>
-            Login
-         </li>
-         <li>
-            Sign-up
-         </li>
-         </ul>
+    <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">SpoilerBoiler</a>
+    </nav>
     );
 }
