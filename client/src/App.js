@@ -3,6 +3,7 @@ import './styles/App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 import Navbar from './components/Navbar'
+import SignupForm from './components/SignupForm';
 
 function App() {
   const [state, setState] = useState(
@@ -26,7 +27,7 @@ function App() {
       },[])
     
   return (
-    <Navbar />
+    <SignupForm/>
   );
 }
 
