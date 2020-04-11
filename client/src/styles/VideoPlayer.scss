@@ -1,0 +1,65 @@
+.video-master-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .video-container {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    
+    .video {
+      width: 100%;
+    }
+
+    .controls {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      flex-wrap: wrap;
+      background-color: #00000070;
+
+
+
+      .buttons button {
+        background: none;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        padding: 10px;
+      }
+
+      .buttons button:before {
+        content: "\f144";
+        font-family: 'Font Awesome 5 Free';
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        font-size: 28px;
+        color: #fff;
+      }
+
+      .buttons button.play:before {
+        content: '\f144';
+      }
+      .buttons button.pause:before {
+        content: '\f28b';
+      }
+
+      .timeline-container {
+        height: 10px;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        .timeline-bar {
+          height: 10px;
+          width: 100px;
+          background-color: #FFCECE;
+        }
+      }
+    }
+  }
+}

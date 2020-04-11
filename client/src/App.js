@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './styles/App.scss';
 import axios from 'axios'
+import VideoPlayer from './components/VideoPlayer'
 
 function App() {
   const [state, setState] = useState(
@@ -23,23 +24,11 @@ function App() {
         videos: all[1].data, 
         comments: all[2].data})))
       },[])
+      console.log(state)
     
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <VideoPlayer />
     </div>
   );
 }
