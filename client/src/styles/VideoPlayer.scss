@@ -30,12 +30,23 @@
       height: 10px;
       width: 90%;
       background-color: white;
+      position: relative;
 
       .spoiler-time {
         height: 100%;
         width: 0%;
         background-color: #FFC5C5;
       }
+      .comment-ticks {
+        height: 20px;
+        width: 5px;
+        background-color: black;
+        position: absolute;
+        left: 0%;
+        bottom: 0px;
+      }
+
     }
   }
+
 }
