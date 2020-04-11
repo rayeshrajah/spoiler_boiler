@@ -5,6 +5,7 @@ import Button from './Button'
 export default function SignupForm(){
     return (
     <form>
+    <section id= "signup-form">
     <div class="form-group">
     <label for="username" class="name-label">Name:</label>
     <input type="text" class="form-control" id="username"/>
@@ -18,5 +19,6 @@ export default function SignupForm(){
     <input type="password" class="form-control" id="PasswordInput"/>
     </div>
     <Button signup type="submit">Submit</Button>
+    </section>
     </form>);
 }
