@@ -1,0 +1,28 @@
+@import "./Variables.scss";
+
+.button{
+    border-radius: 1rem;
+    border: 0;
+    font-size: 1.5rem;
+    height: 2rem;
+    line-height: 1.2rem;
+    margin-right: 1rem;
+    width: 8rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $white-color;
+    color: $white-color;
+    background-color: $white-color;
+}
+
+.button--login{
+    color: $white-color;
+    border-color: $white-color;
+    background-color: $pink-color;
+}
+
+.button--signup{
+    color: $pink-color;
+    border-color: $pink-color;
+    background-color: $white-color;
+}
