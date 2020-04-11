@@ -4,9 +4,12 @@ import Button  from './Button'
 import SignupForm from './SignupForm'
 
 export default function Navbar(){
-    const [click, setClick] = useState(false)
+    const [display, setDisplay] = useState(false)
     function signup(){
-        return setClick(true)
+        if(display){
+         return setDisplay(false)
+        }
+        return setDisplay(true)
     }
     return(
     <div>
@@ -17,7 +20,7 @@ export default function Navbar(){
     <a><Button signup onClick={signup}>Sign-up</Button></a>
     </div>
     </nav>
-    {click && <SignupForm />}
+    {display && <SignupForm />}
     </div>
     );
 }
