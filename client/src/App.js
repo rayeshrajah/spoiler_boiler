@@ -5,6 +5,7 @@ import axios from 'axios'
 import Navbar from './components/Navbar'
 import SignupForm from './components/SignupForm';
 import VideoPlayer from './components/VideoPlayer'
+import HomePage from './components/HomePage';
 
 function App() {
   const [state, setState] = useState(
@@ -37,13 +38,14 @@ function App() {
 
     return (
       <div>
-        <Navbar />
-        {!isLoading && <VideoPlayer 
+        <HomePage/>
+        {/*<Navbar />*/}
+        {/*!isLoading && <VideoPlayer 
           usersApiData={users} 
           commentsApiData={comments} 
           videosApiData={videos} 
           commentTimestamps={commentTimestamps}
-        />}
+        />*/}
       </div>
     );
 
