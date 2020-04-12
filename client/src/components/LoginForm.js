@@ -29,14 +29,14 @@ export default function LoginForm(props) {
 
   return (
     <form onSubmit = {(event) => event.preventDefault()}>
-    <section class="user-form">
+    <section className="user-form">
       <div class="form-group">
         <label for="InputEmail" class="email-label">
           Email address:
         </label>
         <input
           type="email"
-          class="form-control"
+          className="form-control"
           id="email"
           name="email"
           value={email}

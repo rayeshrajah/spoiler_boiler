@@ -61,3 +61,19 @@
 .button--logout:hover {
 	animation: bounce 1s;
 }
+
+.button--search{
+    color: $white-color;
+    border-color: $white-color;
+    background-color: $pink-color;
+    text-align: center;
+    height: 100px;
+    width: 300px;
+    border-style: none;
+    border-radius: 236.5px;
+    font-size: 50px;
+}
+
+.button--search:focus{
+    outline: none;
+}
