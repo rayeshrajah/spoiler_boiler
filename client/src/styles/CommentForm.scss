@@ -1,0 +1,26 @@
+.comment-form-master-container {
+  background-color: #FFF;
+  height: 200px;
+  width: 100%;
+
+  .comment-form {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1em;
+    
+    p {
+      border-radius: 270.5px;
+      font-size: 18px;
+      height: 60px;
+      width: 300px;
+      background-color: #FFC5C5;
+      text-align: center;
+    }
+
+    img {
+      height: 60px;
+      border-radius: 50%;
+    }
+
+  }
+}

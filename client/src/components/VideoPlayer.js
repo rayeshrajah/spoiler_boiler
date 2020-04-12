@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import ReactPlayer from 'react-player'
 import '../styles/VideoPlayer.scss'
 import Comments from './Comments'
+import CommentForm from './CommentForm'
  
 function VideoPlayer(props) {
   const [progress, setProgress] = useState("")
@@ -82,6 +83,8 @@ function VideoPlayer(props) {
       </div>
 
       <Comments messages={messagesFromVideo2} progressInSeconds={progressInSeconds}/>
+
+      <CommentForm />
     </div>
   )
 }
