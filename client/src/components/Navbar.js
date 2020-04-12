@@ -13,8 +13,8 @@ export default function Navbar(){
     }
     return(
     <div>
-    <nav class="navbar nav" id="navbar">
-    <a class="navbar-brand" id="logo-text">SpoilerBoiler</a>
+    <nav className="navbar nav" id="navbar">
+    <a className="navbar-brand" id="logo-text">SpoilerBoiler</a>
     <div id="nav-user-info">
     <a><Button login onClick={console.log('')}>Login</Button></a>
     <a><Button signup onClick={signup}>Sign-up</Button></a>

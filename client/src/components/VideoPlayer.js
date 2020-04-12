@@ -37,7 +37,11 @@ function VideoPlayer(props) {
     let output = [];
     for (let i = 0; i < props.commentsApiData.length; i++) {
       if (props.commentsApiData[i].video_id === id) {
-        output.push(props.commentsApiData[i].message)
+        let commentAndTimestamp = {
+          comment: props.commentsApiData[i].message,
+          timestamp: props.commentsApiData[i].timestamp_in_seconds
+        }
+        output.push(commentAndTimestamp)
       }
     }
     return output
@@ -58,7 +62,9 @@ function VideoPlayer(props) {
           playing 
           controls
           onProgress={(obj) => setProgress(Math.floor(obj.played * 100) + "%")}
+          // onProgress={(obj) => console.log(obj.playedSeconds)}
           onDuration={(duration) => setVideoDuration(duration)}
+          volume="0"
         />
       </div>
 
