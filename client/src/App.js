@@ -35,7 +35,12 @@ function App() {
 
     return (
       <div>
-        {!isLoading && <VideoPlayer commentTimestamps={commentTimestamps}/>}
+        {!isLoading && <VideoPlayer 
+          usersApiData={users} 
+          commentsApiData={comments} 
+          videosApiData={videos} 
+          commentTimestamps={commentTimestamps}
+        />}
       </div>
     );
 
