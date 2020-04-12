@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import ReactPlayer from 'react-player'
 import '../styles/VideoPlayer.scss'
+import Comments from './Comments'
  
 function VideoPlayer(props) {
   const [progress, setProgress] = useState("")
@@ -40,6 +41,7 @@ function VideoPlayer(props) {
           onDuration={(duration) => setVideoDuration(duration)}
         />
       </div>
+
       <div className="spoiler-timebar-master">
         <div className="spoiler-bar">
           <div className="spoiler-time" style={{width: String(progress)}}>
@@ -47,6 +49,8 @@ function VideoPlayer(props) {
           </div>
         </div>
       </div>
+      
+      <Comments />
     </div>
   )
 }
