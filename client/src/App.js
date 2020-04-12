@@ -38,8 +38,6 @@ function App() {
 
     return (
       <div>
-        <HomePage/>
-        {/*<Navbar />*/}
         {/*!isLoading && <VideoPlayer 
           usersApiData={users} 
           commentsApiData={comments} 
