@@ -6,8 +6,9 @@ function CommentForm() {
     <div className="comment-form-master-container">
       <div className="comment-form"> 
           <img src="https://www.placecage.com/300/300"/>
-          <p>fill out the form!!!!!!!!!</p>
+          <input type="text" placeholder="Go ahead and spoil something!"/>
       </div>
+      <button className="comment-button">SPOILER</button>
     </div>
   )
 }
