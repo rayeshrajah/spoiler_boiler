@@ -5,6 +5,7 @@ import Comments from './Comments'
  
 function VideoPlayer(props) {
   const [progress, setProgress] = useState("")
+  const [progressInSeconds, setProgressInSeconds] = useState(0)
   const [timestamp, setTimestamp] = useState(props.commentTimestamps)
   const [videoDuration, setVideoDuration] = useState(0)
   const reactPlayerLib = useRef(null)
@@ -51,6 +52,13 @@ function VideoPlayer(props) {
   let messagesFromVideo2 = getAllCommentMessagesByVideoId(2)
 
   // ================ stuff for Comments component above ============
+
+  function retrieveKeysFromOnProgress(obj) {
+    setProgress(Math.floor(obj.played * 100) + "%")
+    setProgressInSeconds(Math.floor(obj.playedSeconds))
+  }
+
+  console.log(progressInSeconds)
   
   return (
     <div className="video-master">
@@ -61,8 +69,7 @@ function VideoPlayer(props) {
           url={props.videosApiData[1].video_url} 
           playing 
           controls
-          onProgress={(obj) => setProgress(Math.floor(obj.played * 100) + "%")}
-          // onProgress={(obj) => console.log(obj.playedSeconds)}
+          onProgress={(obj) => retrieveKeysFromOnProgress(obj)}
           onDuration={(duration) => setVideoDuration(duration)}
           volume="0"
         />
@@ -76,7 +83,7 @@ function VideoPlayer(props) {
         </div>
       </div>
 
-      <Comments messages={messagesFromVideo2}/>
+      <Comments messages={messagesFromVideo2} progressInSeconds={progressInSeconds}/>
     </div>
   )
 }
