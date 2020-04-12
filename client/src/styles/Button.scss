@@ -51,3 +51,13 @@
 .button--signup:hover{
     animation: bounce 1s;
 }
+
+.button--logout{
+    color: $white-color;
+    border-color: $white-color;
+    background-color: $pink-color;
+}
+
+.button--logout:hover {
+	animation: bounce 1s;
+}

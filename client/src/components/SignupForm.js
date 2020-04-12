@@ -3,7 +3,7 @@ import '../styles/Form.scss'
 import Button from './Button'
 import axios from 'axios'
 
-export default function SignupForm(){
+export default function SignupForm(props){
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -14,9 +14,13 @@ export default function SignupForm(){
              "email": email,
              "password": password
          }
-     }).then((response) => console.log(response))
+     }).then(() => {
+        props.displayState(false)
+        props.displayButton(false)
+     })
        .catch((error) => console.log(error))
     }
+
     return (
     <form onSubmit = {(event) => event.preventDefault()}>
     <section class="user-form">

@@ -1,12 +1,34 @@
 import React, {useState, useEffect} from "react";
+import axios from 'axios'
 import Button from './Button'
 import '../styles/Form.scss'
 
-export default function LoginForm() {
+export default function LoginForm(props) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [userInfo, setUserInfoFound] = useState(false)
   
+  useEffect(()=>{
+    axios.get('/users')
+         .then( (response) => {
+             let data = response.data
+             data.forEach(element => {
+                 if(element.email === email && element.password === password)
+                 setUserInfoFound(true)
+                });
+            })
+            .catch(error => console.log(error))
+        })
+        
+    function userInfoFound(){
+        if(userInfo){
+        props.displayState(false)
+        return props.displayButton(false)
+      }
+  }
+
   return (
+    <form onSubmit = {(event) => event.preventDefault()}>
     <section class="user-form">
       <div class="form-group">
         <label for="InputEmail" class="email-label">
@@ -34,9 +56,10 @@ export default function LoginForm() {
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
-      <Button login onClick={console.log("")}>
+       <Button login onClick={userInfoFound}>
         Submit
       </Button>
     </section>
+    </form>
   );
 }

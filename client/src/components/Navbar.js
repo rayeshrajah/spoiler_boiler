@@ -7,6 +7,8 @@ import LoginForm from './LoginForm'
 export default function Navbar(){
     const [displaySignup, setDisplaySignup] = useState(false)
     const [displayLogin, setDisplayLogin] = useState(false)
+    const [buttonDisplay, setButtonDisplay] = useState(true)
+    
     function signup(){
         if(displaySignup){
          return setDisplaySignup(false)
@@ -19,17 +21,23 @@ export default function Navbar(){
            }
            return setDisplayLogin(true)
     }
+    function logout(){
+        setButtonDisplay(true)
+    }
+    
+
     return(
     <div>
     <nav class="navbar nav" id="navbar">
     <a class="navbar-brand" id="logo-text">SpoilerBoiler</a>
     <div id="nav-user-info">
-    <a><Button login onClick={login}>Login</Button></a>
-    <a><Button signup onClick={signup}>Sign-up</Button></a>
+    <a>{!buttonDisplay && <Button logout onClick={logout}>Logout</Button>}</a>
+    <a>{buttonDisplay && <Button login onClick={login}>Login</Button>}</a>
+    <a>{buttonDisplay && <Button signup onClick={signup}>Sign-up</Button>}</a>
     </div>
     </nav>
-    {displayLogin && <LoginForm />}
-    {displaySignup && <SignupForm />}
+    {displayLogin && <LoginForm displayButton={setButtonDisplay} displayState={setDisplayLogin}/>}
+    {displaySignup && <SignupForm displayButton={setButtonDisplay} displayState={setDisplaySignup}/>}
     </div>
     );
 }

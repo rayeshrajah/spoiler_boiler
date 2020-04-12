@@ -5,7 +5,8 @@ import '../styles/Button.scss'
 export default function Button(props){
     let buttonClass = classNames('button', {
         'button--login': props.login,
-        'button--signup': props.signup
+        'button--signup': props.signup,
+        'button--logout': props.logout
     })
     return (
        <button className = {buttonClass} 
