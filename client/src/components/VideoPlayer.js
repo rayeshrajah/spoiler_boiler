@@ -9,6 +9,8 @@ function VideoPlayer(props) {
   const [videoDuration, setVideoDuration] = useState(0)
   const reactPlayerLib = useRef(null)
 
+  // ================ stuff for videoplayer component below =========
+  
   function getCommentTimestampsByVideoId(id) {
     let output = [];
     for (let i = 0; i < props.commentsApiData.length; i++) {
@@ -18,16 +20,34 @@ function VideoPlayer(props) {
     }
     return output
   }
-
+  
   // for testing purposes (harcoded to get comments from video_id 2)
   let timestampsForVideo = getCommentTimestampsByVideoId(2)
-
+  
   let htmlForCommentTimestamps = timestampsForVideo.map(timestamp => {
     return (
       <div key={timestamp} className="comment-ticks" style={{left: String(Math.floor((timestamp / videoDuration) * 100) + "%")}}></div>
-    )
-  })
+      )
+    })
 
+  // ================ stuff for VideoPlayer component avove =========
+  // ================ stuff for Comments component below ============
+  
+  function getAllCommentMessagesByVideoId(id) {
+    let output = [];
+    for (let i = 0; i < props.commentsApiData.length; i++) {
+      if (props.commentsApiData[i].video_id === id) {
+        output.push(props.commentsApiData[i].message)
+      }
+    }
+    return output
+  }
+
+  // for testing purposes (harcoded to get comments from video_id 2)
+  let messagesFromVideo2 = getAllCommentMessagesByVideoId(2)
+
+  // ================ stuff for Comments component above ============
+  
   return (
     <div className="video-master">
       <div className="video-container">
@@ -49,8 +69,8 @@ function VideoPlayer(props) {
           </div>
         </div>
       </div>
-      
-      <Comments />
+
+      <Comments messages={messagesFromVideo2}/>
     </div>
   )
 }
