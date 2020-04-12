@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import '../styles/SignupForm.scss'
+import '../styles/Form.scss'
 import Button from './Button'
 import axios from 'axios'
 
-export default function SignupForm(){
+export default function SignupForm(props){
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -14,15 +14,16 @@ export default function SignupForm(){
              "email": email,
              "password": password
          }
-     }).then((response) => console.log(response))
+     }).then(() => {
+        props.displayState(false)
+        props.displayButton(false)
+     })
        .catch((error) => console.log(error))
     }
-    console.log(name)
-    console.log(email)
-    console.log(password)
+
     return (
     <form onSubmit = {(event) => event.preventDefault()}>
-    <section id= "signup-form">
+    <section class="user-form">
     <div class="form-group">
     <label for="username" class="name-label">Name:</label>
     <input type="text" 
@@ -36,7 +37,7 @@ export default function SignupForm(){
     <label for="InputEmail" class="email-label">Email address:</label>
     <input type="email" 
            class="form-control" 
-           id="EmailInput"
+           id="email"
            name="email" 
            value={email}
            onChange={(event) => setEmail(event.target.value)}  
@@ -46,7 +47,7 @@ export default function SignupForm(){
     <label for="InputPassword" class="password-label">Password:</label>
     <input type="password" 
            class="form-control" 
-           id="PasswordInput"
+           id="password"
            name="password"
            value={password}
            onChange={(event) => setPassword(event.target.value)}
