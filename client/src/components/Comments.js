@@ -3,17 +3,17 @@ import '../styles/Comments.scss'
 
 function Comments(props) {
 
-  let commentsSortedByTimeAscending = props.messages.sort((a, b) => a.timestamp - b.timestamp)
+  let commentsSortedByTimeDescending = props.messages.sort((a, b) => b.timestamp - a.timestamp)
 
-  let htmlForCommentMessages = commentsSortedByTimeAscending.map(message => {
+  let htmlForCommentMessages = commentsSortedByTimeDescending.map(message => {
     return (
       <div 
         key={message.timestamp} 
         className="individual-comment" 
         style={message.timestamp <= props.progressInSeconds ? {display: "flex"} : {display: "none"}}
-      >
-        <img src="https://www.placecage.com/300/300"/>
-        <p>{message.comment} @{message.timestamp} sec</p>
+      > 
+          <img src="https://www.placecage.com/300/300"/>
+          <p>{message.comment} @{message.timestamp} sec</p>
       </div>
       )
     })

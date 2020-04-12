@@ -57,8 +57,6 @@ function VideoPlayer(props) {
     setProgress(Math.floor(obj.played * 100) + "%")
     setProgressInSeconds(Math.floor(obj.playedSeconds))
   }
-
-  console.log(progressInSeconds)
   
   return (
     <div className="video-master">
