@@ -1,0 +1,39 @@
+.comments-master-container {
+  background-color: #FFCECE;
+  height: 200px;
+  width: 100%;
+  overflow: scroll;
+
+  @keyframes fadeInLeft {
+    0% {
+       opacity: 0;
+       transform: translateX(-200px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateX(0);
+    }
+  }
+
+  .individual-comment {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1em;
+    animation: fadeInLeft 1s;
+    
+    p {
+      border-radius: 270.5px;
+      font-size: 18px;
+      height: 60px;
+      width: 300px;
+      background-color: white;
+      text-align: center;
+    }
+
+    img {
+      height: 60px;
+      border-radius: 50%;
+    }
+
+  }
+}

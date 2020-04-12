@@ -28,8 +28,8 @@ export default function Navbar(){
 
     return(
     <div>
-    <nav class="navbar nav" id="navbar">
-    <a class="navbar-brand" id="logo-text">SpoilerBoiler</a>
+    <nav className="navbar nav" id="navbar">
+    <a className="navbar-brand" id="logo-text">SpoilerBoiler</a>
     <div id="nav-user-info">
     <a>{!buttonDisplay && <Button logout onClick={logout}>Logout</Button>}</a>
     <a>{buttonDisplay && <Button login onClick={login}>Login</Button>}</a>
