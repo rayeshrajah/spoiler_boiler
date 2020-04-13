@@ -38,12 +38,14 @@ function App() {
 
     return (
       <div>
-        {/*!isLoading && <VideoPlayer 
+        <Navbar />
+        <HomePage />
+        {!isLoading && <VideoPlayer 
           usersApiData={users} 
           commentsApiData={comments} 
           videosApiData={videos} 
           commentTimestamps={commentTimestamps}
-        />*/}
+        />}
       </div>
     );
 
