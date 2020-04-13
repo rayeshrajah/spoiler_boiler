@@ -5,14 +5,16 @@ import Axios from 'axios';
 function CommentForm(props) {
 
   const [comment, setComment] = useState("");
+  const [timestampWanted, setTimestampWanted] = useState(0)
 
   // console.log(props.progressInSeconds)
+
 
   function addCommentToDatabase() {
     Axios.post('/comments', {
       comment: {
         "message": comment,
-        "timestamp_in_seconds": 2 
+        "timestamp_in_seconds": timestampWanted 
       }
     })
     .catch(error => console.log(error))
@@ -30,6 +32,7 @@ function CommentForm(props) {
               placeholder={`Spoil something @ ${props.progressInSeconds} seconds!`}
               value={comment}
               onChange={event => setComment(event.target.value)}
+              onClick={() => setTimestampWanted(props.progressInSeconds)}
             />
         </div>
         <button 

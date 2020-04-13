@@ -66,11 +66,11 @@ function VideoPlayer(props) {
           ref={reactPlayerLib}
           className="video" 
           url={props.videosApiData[1].video_url} 
-          playing 
+          playing={false}
           controls
           onProgress={(obj) => retrieveKeysFromOnProgress(obj)}
           onDuration={(duration) => setVideoDuration(duration)}
-          volume="0"
+          volume={0}
         />
       </div>
 
