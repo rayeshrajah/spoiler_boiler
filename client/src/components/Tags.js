@@ -1,8 +1,14 @@
 import React from 'react'
 
 function Tags(props) {
+
+  // console.log(props.taggedComments)
+
+
   return (
-    <h1>helllo!!!</h1>
+    <div>
+      <h1>testing for tags component!</h1>
+    </div>
   )
 }
 

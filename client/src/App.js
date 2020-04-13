@@ -47,7 +47,7 @@ function App() {
           videosApiData={videos} 
           commentTimestamps={commentTimestamps}
         />}
-        <Tags />
+        <Tags taggedComments={comments}/>
       </div>
     );
 

@@ -4,7 +4,7 @@ import Button from './Button';
 
 export default function HomePage(){
     const [search, setSearch] = useState("")
-    console.log(search)
+//     console.log(search)
     return(<div className="homepage">
             <input className="search-video" 
                    placeholder="WATCH"
