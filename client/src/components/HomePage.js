@@ -6,6 +6,8 @@ import SearchResults from "./SearchResults";
 export default function HomePage(props) {
   const [search, setSearch] = useState("");
   const [finalSearch, setFinalSearch] = useState("")
+  /*Ask mentor tommmorow about this situation */
+  //console.log('this is the final search: ', finalSearch)
   return (
     <div>
       <div className="homepage">

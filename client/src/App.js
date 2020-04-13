@@ -39,6 +39,7 @@ function App() {
 
     return (
       <div>
+      <Navbar />
       <HomePage videosApiData={videos}/>
         {/*!isLoading && <VideoPlayer 
           usersApiData={users} 
