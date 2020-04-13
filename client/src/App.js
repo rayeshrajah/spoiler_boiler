@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import SignupForm from './components/SignupForm';
 import VideoPlayer from './components/VideoPlayer'
 import HomePage from './components/HomePage';
+import SearchResults from './components/SearchResults';
 
 function App() {
   const [state, setState] = useState(
@@ -39,7 +40,7 @@ function App() {
     return (
       <div>
         <Navbar />
-        <HomePage />
+        <HomePage videosApiData={videos}/>
         {!isLoading && <VideoPlayer 
           usersApiData={users} 
           commentsApiData={comments} 
