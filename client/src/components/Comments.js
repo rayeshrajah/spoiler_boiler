@@ -13,7 +13,7 @@ function Comments(props) {
         style={message.timestamp <= props.progressInSeconds ? {display: "flex"} : {display: "none"}}
       > 
           <img src="https://www.placecage.com/300/300"/>
-          <p>{message.comment} @{message.timestamp} sec</p>
+          <p>{message.comment}</p>
       </div>
       )
     })

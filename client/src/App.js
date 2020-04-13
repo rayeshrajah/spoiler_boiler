@@ -33,7 +33,7 @@ function App() {
         comments: all[2].data,
         isLoading: false
         }))
-      },[])
+      },[comments])
   
 
     return (
