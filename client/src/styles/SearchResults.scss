@@ -1,8 +1,11 @@
 @import './Variables.scss';
 
 .video-list{
-    display: flex;
-    flex-direction: row;
-    flex-flow: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.video-item{
+    padding: 10px;
+    margin: 10px;
 }

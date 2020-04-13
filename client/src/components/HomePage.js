@@ -24,7 +24,7 @@ export default function HomePage(props) {
           BOILER
         </Button>
       </div>
-      <SearchResults results={finalSearch} videosApi={props.videosApiData} />
+      {finalSearch != "" && <SearchResults results={finalSearch} videosApi={props.videosApiData} />}
     </div>
   );
 }
