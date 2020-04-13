@@ -14,7 +14,8 @@ function CommentForm(props) {
     Axios.post('/comments', {
       comment: {
         "message": comment,
-        "timestamp_in_seconds": timestampWanted 
+        "timestamp_in_seconds": timestampWanted,
+        "video_id": "2" 
       }
     })
     .catch(error => console.log(error))
