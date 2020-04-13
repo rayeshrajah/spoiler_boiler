@@ -6,23 +6,27 @@ function CommentForm(props) {
 
   const [comment, setComment] = useState("");
   const [timestampWanted, setTimestampWanted] = useState(0)
+  const [commentData, setCommentData] = useState()
 
   // console.log(props.progressInSeconds)
-
-
-  function addCommentToDatabase() {
-    Axios.post('/comments', {
-      comment: {
-        "message": comment,
-        "timestamp_in_seconds": timestampWanted,
-        "video_id": "2" 
-      }
-    })
-    .catch(error => console.log(error))
+  
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    let commentObj = {
+      "message": comment,
+      "timestamp_in_seconds": timestampWanted,
+      "video_id": "2" 
+    }
+    props.addCommentToDatabase(commentObj)
   }
 
+
+
+
+  // handle submit -> call add commenttodatabase (in app) > bring it down to props
+
   return (
-    <form onSubmit={event => event.preventDefault()}>
+    <form onSubmit={handleSubmit}>
       <div className="comment-form-master-container">
         <div className="comment-form"> 
             <img src="https://www.placecage.com/300/300"/>
@@ -37,8 +41,7 @@ function CommentForm(props) {
             />
         </div>
         <button 
-          className="comment-button" 
-          onClick={addCommentToDatabase}
+          className="comment-button"
         >
           SPOILER
         </button>
