@@ -84,7 +84,7 @@ function VideoPlayer(props) {
 
       <Comments messages={messagesFromVideo2} progressInSeconds={progressInSeconds}/>
 
-      <CommentForm />
+      <CommentForm progressInSeconds={progressInSeconds}/>
     </div>
   )
 }

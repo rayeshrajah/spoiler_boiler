@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import '../styles/CommentForm.scss'
 import Axios from 'axios';
 
-function CommentForm() {
+function CommentForm(props) {
 
   const [comment, setComment] = useState("");
 
-  console.log(comment)
+  // console.log(props.progressInSeconds)
 
   function addCommentToDatabase() {
     Axios.post('/comments', {
@@ -27,7 +27,7 @@ function CommentForm() {
             <input 
               id="comment"
               type="text" 
-              placeholder="Go ahead and spoil something!"
+              placeholder={`Spoil something @ ${props.progressInSeconds} seconds!`}
               value={comment}
               onChange={event => setComment(event.target.value)}
             />
