@@ -11,7 +11,7 @@
   .comment-form {
     display: flex;
     justify-content: space-evenly;
-    margin: 1em;
+    margin-top: 1em;
     
     input[type="text"] {
       border-radius: 270.5px;
@@ -38,11 +38,25 @@
     height: 70px;
     width: 400px;
     color: #000;
-    background-color: #FF7878;
+    background-color: rgb(253, 81, 81);
     border-radius: 236.5px;
     font-size: 50px;
     font-weight: 500;
     line-height: 50%;
     outline: none;
+  }
+
+  #tag {
+    border-radius: 270.5px;
+    font-size: 18px;
+    height: 30px;
+    width: 300px;
+    background-color: rgb(245, 153, 153);
+    text-align: center;
+    border: none;
+    outline: none;
+    color: $red-color;
+    margin-left: 88px;
+    margin-bottom: 0.3em;
   }
 }

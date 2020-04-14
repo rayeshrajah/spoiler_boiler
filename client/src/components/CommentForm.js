@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import '../styles/CommentForm.scss'
-import Axios from 'axios';
 
 function CommentForm(props) {
-
+  
   const [comment, setComment] = useState("");
   const [tag, setTag] = useState("");
   const [timestampWanted, setTimestampWanted] = useState(0)
-
-  // console.log(props.progressInSeconds)
   
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -20,11 +17,6 @@ function CommentForm(props) {
     }
     props.addCommentToDatabase(commentObj)
   }
-
-
-
-
-  // handle submit -> call add commenttodatabase (in app) > bring it down to props
 
   return (
     <form onSubmit={handleSubmit}>
@@ -49,11 +41,7 @@ function CommentForm(props) {
           value={tag}
           onChange={event => setTag(event.target.value)}
         />
-        <button 
-          className="comment-button"
-        >
-          SPOILER
-        </button>
+        <button className="comment-button">SPOILER</button>
       </div>
     </form>
   )

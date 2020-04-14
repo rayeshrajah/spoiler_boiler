@@ -17,11 +17,16 @@
       width: 100px;
       margin-right: 1em;
       margin-bottom: 0.5em;
+      cursor: pointer;
   
       .tag-capsule-flex {
         display: flex;
         justify-content: center;
       }
+    }
+
+    .tag-capsule:hover {
+      background-color: red;
     }
   }
 }
