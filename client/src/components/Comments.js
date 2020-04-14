@@ -1,7 +1,8 @@
 import React from 'react'
 import '../styles/Comments.scss'
-import '../components/CommentsGraph'
-import CommentsGraph from '../components/CommentsGraph';
+import CommentsGraph from './CommentsGraph';
+import Tags from './Tags'
+
 
 function Comments(props) {
 
@@ -18,15 +19,9 @@ function Comments(props) {
     }
     return output // [{comment:"sadasd", timesamp: 12}, {comment:"sadasd", timesamp: 20} ]
   }
-
-  console.log("id ====>", props.videoIdFocused)
-  console.log("comments ====>", props.comments)
   
   let isolatedVideo = getCommentTimestampsByVideoId(props.videoIdFocused)
   
-  console.log("isolated video ====>", isolatedVideo)
-
-
   let commentsSortedByTimeDescending = isolatedVideo.sort((a, b) => b.timestamp - a.timestamp)
   let htmlForCommentMessages = commentsSortedByTimeDescending.map((message, index) => {
     return (
@@ -46,6 +41,8 @@ function Comments(props) {
     <div className="comments-master-container">
       {htmlForCommentMessages}
     <CommentsGraph comments={props.comments} videoIdFocused={props.videoIdFocused}/>
+
+      <Tags comments={props.comments}/>
     </div>
     
   )

@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import SignupForm from './components/SignupForm';
 import VideoPlayer from './components/VideoPlayer'
 import HomePage from './components/HomePage';
+import Tags from './components/Tags'
 import SearchResults from './components/SearchResults';
 import CommentForm from './components/CommentForm';
 
