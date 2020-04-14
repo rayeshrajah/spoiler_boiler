@@ -52,6 +52,17 @@ function App() {
         .catch(error => console.log(error))
       }
 
+
+      function addVideoToDatabase(video) {
+        axios.post('/videos', {video})
+        .then(() => {
+          setState({...state, videos: [...state.videos, video]})
+        })
+        .then(() => {
+          axios.get('/videos').then(response => setState({...state, videos: response.data}))
+        })
+      }
+
   
 
     return (
@@ -61,6 +72,7 @@ function App() {
           videosApiData={videos}
           focusedVideo={setVideoUrl}
           videoIdFocused={setVideoIdFocused}
+          addVideoToDatabase={addVideoToDatabase}
         />
 
         {!isLoading && <VideoPlayer 

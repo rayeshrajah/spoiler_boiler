@@ -8,13 +8,11 @@ function CreateVideoForm(props) {
 
   const submitNewVideo = (event) => {
     event.preventDefault()
-
-    return axios.post('/videos', {
-      video: {
-        "name": videoName,
-        "video_url": videoUrl
-      }
-    })
+    let videoObj = {
+      "name": videoName,
+      "video_url": videoUrl 
+    }
+    props.addVideoToDatabase(videoObj)
   }
 
   return (

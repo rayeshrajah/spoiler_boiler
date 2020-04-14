@@ -50,7 +50,7 @@ export default function HomePage(props) {
                                 setShow={setShow}
                                 show={show}
                                 />}
-      {createForm && <CreateVideoForm />}
+      {createForm && <CreateVideoForm addVideoToDatabase={props.addVideoToDatabase}/>}
     </div>
   );
 }
