@@ -74,7 +74,6 @@ function VideoPlayer(props) {
 
       <Comments 
         comments={props.comments} // [{}, {}]
-        videoIdFocused={props.videoIdFocused}
         progressInSeconds={progressInSeconds}
         videoIdFocused={props.videoIdFocused}
         />

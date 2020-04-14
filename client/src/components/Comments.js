@@ -45,7 +45,7 @@ function Comments(props) {
   return (
     <div className="comments-master-container">
       {htmlForCommentMessages}
-    <CommentsGraph comments={props.comments}/>
+    <CommentsGraph comments={props.comments} videoIdFocused={props.videoIdFocused}/>
     </div>
     
   )

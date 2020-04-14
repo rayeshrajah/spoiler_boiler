@@ -11,8 +11,11 @@ export default function CommentsGraph(props) {
   let timestampObj = {};
   let arrayCommentCount = [];
   let arrayTimestampKeys = [];
+  let filteredCommentObj = props.comments.filter(
+    (comment) => comment.video_id === props.videoIdFocused
+  );
 
-  const timestampData = props.comments.map(
+  const timestampData = filteredCommentObj.map(
     (comment) => comment.timestamp_in_seconds
   );
 
@@ -39,8 +42,9 @@ export default function CommentsGraph(props) {
     datasets: [
       {
         label: "Comments",
-        backgroundColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(255, 0, 0, 1)",
         borderColor: "rgba(0,0,0,1)",
+        pointBackgroundColor: "rgba(196, 196, 196, 1)",
         borderWidth: 2,
         data: arrayCommentCount,
       },
@@ -53,16 +57,21 @@ export default function CommentsGraph(props) {
         id="comment-chart"
         data={commentsData}
         options={{
+          elements: {
+            line: {
+              tension: 0,
+            },
+          },
           title: {
             display: true,
             text: "Amount of Comments per Timestamps",
-            fontSize: 20
+            fontSize: 20,
           },
           scales: {
             xAxes: [
               {
                 gridLines: {
-                  display: true,
+                  display: false,
                 },
               },
             ],
