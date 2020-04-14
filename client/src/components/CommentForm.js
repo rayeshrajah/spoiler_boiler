@@ -5,6 +5,7 @@ import Axios from 'axios';
 function CommentForm(props) {
 
   const [comment, setComment] = useState("");
+  const [tag, setTag] = useState("");
   const [timestampWanted, setTimestampWanted] = useState(0)
 
   // console.log(props.progressInSeconds)
@@ -14,7 +15,8 @@ function CommentForm(props) {
     let commentObj = {
       "message": comment,
       "timestamp_in_seconds": timestampWanted,
-      "video_id": props.videoIdFocused 
+      "video_id": props.videoIdFocused,
+      "tag": tag 
     }
     props.addCommentToDatabase(commentObj)
   }
@@ -39,6 +41,14 @@ function CommentForm(props) {
               onClick={() => setTimestampWanted(props.progressInSeconds)}
             />
         </div>
+        <label for="tag"></label>
+        <input 
+          id="tag"
+          type="text" 
+          placeholder="Add a tag!"
+          value={tag}
+          onChange={event => setTag(event.target.value)}
+        />
         <button 
           className="comment-button"
         >
