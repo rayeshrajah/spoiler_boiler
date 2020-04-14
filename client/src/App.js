@@ -63,7 +63,7 @@ function App() {
         })
       }
 
-  
+      console.log(comments)
 
     return (
       <div>

@@ -1,5 +1,7 @@
 import React from 'react'
 import '../styles/Comments.scss'
+import '../components/CommentsGraph'
+import CommentsGraph from '../components/CommentsGraph';
 
 function Comments(props) {
 
@@ -43,7 +45,9 @@ function Comments(props) {
   return (
     <div className="comments-master-container">
       {htmlForCommentMessages}
+    <CommentsGraph comments={props.comments}/>
     </div>
+    
   )
 }
 
