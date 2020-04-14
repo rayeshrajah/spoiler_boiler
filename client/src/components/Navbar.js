@@ -11,15 +11,17 @@ export default function Navbar(){
     
     function signup(){
         if(displaySignup){
-         return setDisplaySignup(false)
+            setDisplaySignup(false)
         }
-        return setDisplaySignup(true)
+        setDisplayLogin(false)
+        setDisplaySignup(true)
     }
     function login(){
         if(displayLogin){
-            return setDisplayLogin(false)
-           }
-           return setDisplayLogin(true)
+            setDisplayLogin(false)
+        }
+        setDisplaySignup(false)
+        setDisplayLogin(true)
     }
     function logout(){
         setButtonDisplay(true)
@@ -36,8 +38,8 @@ export default function Navbar(){
     <a>{buttonDisplay && <Button signup onClick={signup}>Sign-up</Button>}</a>
     </div>
     </nav>
-    {displayLogin && <LoginForm displayButton={setButtonDisplay} displayState={setDisplayLogin}/>}
-    {displaySignup && <SignupForm displayButton={setButtonDisplay} displayState={setDisplaySignup}/>}
+    {displayLogin && !displaySignup && <LoginForm displayButton={setButtonDisplay} displayState={setDisplayLogin}/>}
+    {displaySignup && !displayLogin && <SignupForm displayButton={setButtonDisplay} displayState={setDisplaySignup}/>}
     </div>
     );
 }
