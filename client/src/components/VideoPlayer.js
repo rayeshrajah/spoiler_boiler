@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player'
 import '../styles/VideoPlayer.scss'
 import Comments from './Comments'
 import CommentForm from './CommentForm'
+import SearchResults from './SearchResults'
  
 function VideoPlayer(props) {
   const [progress, setProgress] = useState("")
@@ -16,41 +17,29 @@ function VideoPlayer(props) {
   function getCommentTimestampsByVideoId(id) {
     let output = [];
     for (let i = 0; i < props.commentsApiData.length; i++) {
-      if (props.commentsApiData[i].video_id === id) {
+      if (props.commentsApiData[i].video_id === props.videoIdFocused) {
         output.push(props.commentsApiData[i].timestamp_in_seconds)
       }
     }
-    return output
+    return output // [12, 23, 45]
   }
   
   // for testing purposes (harcoded to get comments from video_id 2)
-  let timestampsForVideo = getCommentTimestampsByVideoId(2)
+  let timestampsForVideo = getCommentTimestampsByVideoId(props.videoIdFocused)
   
-  let htmlForCommentTimestamps = timestampsForVideo.map(timestamp => {
+  let htmlForCommentTimestamps = timestampsForVideo.map((timestamp, index) => {
     return (
-      <div key={timestamp} className="comment-ticks" style={{left: String(Math.floor((timestamp / videoDuration) * 100) + "%")}}></div>
+      <div key={index} className="comment-ticks" style={{left: String(Math.floor((timestamp / videoDuration) * 100) + "%")}}></div>
       )
     })
 
   // ================ stuff for VideoPlayer component avove =========
   // ================ stuff for Comments component below ============
   
-  function getAllCommentMessagesByVideoId(id) {
-    let output = [];
-    for (let i = 0; i < props.commentsApiData.length; i++) {
-      if (props.commentsApiData[i].video_id === id) {
-        let commentAndTimestamp = {
-          comment: props.commentsApiData[i].message,
-          timestamp: props.commentsApiData[i].timestamp_in_seconds
-        }
-        output.push(commentAndTimestamp)
-      }
-    }
-    return output
-  }
+
 
   // for testing purposes (harcoded to get comments from video_id 2)
-  let messagesFromVideo2 = getAllCommentMessagesByVideoId(2)
+  // let messagesFromVideo2 = getAllCommentMessagesByVideoId(2)
 
   // ================ stuff for Comments component above ============
 
@@ -65,7 +54,7 @@ function VideoPlayer(props) {
         <ReactPlayer
           ref={reactPlayerLib}
           className="video" 
-          url={props.videosApiData[1].video_url} 
+          url={props.focusedVideo} 
           playing={false}
           controls
           onProgress={(obj) => retrieveKeysFromOnProgress(obj)}
@@ -73,6 +62,7 @@ function VideoPlayer(props) {
           volume={0}
         />
       </div>
+
 
       <div className="spoiler-timebar-master">
         <div className="spoiler-bar">
@@ -82,9 +72,18 @@ function VideoPlayer(props) {
         </div>
       </div>
 
-      <Comments messages={messagesFromVideo2} progressInSeconds={progressInSeconds}/>
+      <Comments 
+        comments={props.comments} // [{}, {}]
+        progressInSeconds={progressInSeconds}
+        videoIdFocused={props.videoIdFocused}
+        />
 
-      <CommentForm progressInSeconds={progressInSeconds}/>
+      <CommentForm 
+        videoIdFocused={props.videoIdFocused}
+        progressInSeconds={progressInSeconds} 
+        addCommentToDatabase={props.addCommentToDatabase}
+        commentsApiData={props.commentsApiData}
+      />
     </div>
   )
 }

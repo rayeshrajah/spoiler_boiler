@@ -7,6 +7,8 @@ import SignupForm from './components/SignupForm';
 import VideoPlayer from './components/VideoPlayer'
 import HomePage from './components/HomePage';
 import Tags from './components/Tags'
+import SearchResults from './components/SearchResults';
+import CommentForm from './components/CommentForm';
 
 function App() {
   const [state, setState] = useState(
@@ -16,10 +18,14 @@ function App() {
       comments: [],
       isLoading: true
     }
-    )
-    const {users, videos, comments, isLoading} = state
-    let commentTimestamps = [];
-    comments.forEach(comment => commentTimestamps.push(comment.timestamp_in_seconds))
+  )
+  
+  const [videoUrl, setVideoUrl] = useState("")
+  const [videoIdFocused, setVideoIdFocused] = useState()
+
+  const {users, videos, comments, isLoading} = state
+  let commentTimestamps = [];
+  comments.forEach(comment => commentTimestamps.push(comment.timestamp_in_seconds))
 
     
     useEffect(() => {
@@ -34,18 +40,51 @@ function App() {
         comments: all[2].data,
         isLoading: false
         }))
-      },[comments])
+      },[])
+
+      function addCommentToDatabase(comment) {
+        axios.post('/comments', {comment})
+        .then(() => {
+          setState({...state, comments: [...state.comments, comment]})
+        })
+        .then(() => {
+          axios.get('/comments').then(response => setState({...state, comments: response.data}))
+        })
+        .catch(error => console.log(error))
+      }
+
+
+      function addVideoToDatabase(video) {
+        axios.post('/videos', {video})
+        .then(() => {
+          setState({...state, videos: [...state.videos, video]})
+        })
+        .then(() => {
+          axios.get('/videos').then(response => setState({...state, videos: response.data}))
+        })
+      }
+
   
 
     return (
       <div>
         <Navbar />
-        <HomePage />
+        <HomePage 
+          videosApiData={videos}
+          focusedVideo={setVideoUrl}
+          videoIdFocused={setVideoIdFocused}
+          addVideoToDatabase={addVideoToDatabase}
+        />
+
         {!isLoading && <VideoPlayer 
           usersApiData={users} 
-          commentsApiData={comments} 
+          commentsApiData={state.comments} 
+          comments={state.comments}
           videosApiData={videos} 
           commentTimestamps={commentTimestamps}
+          addCommentToDatabase={addCommentToDatabase}
+          focusedVideo={videoUrl}
+          videoIdFocused={videoIdFocused}
         />}
         <Tags taggedComments={comments}/>
       </div>
