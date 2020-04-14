@@ -3,7 +3,6 @@ import ReactPlayer from 'react-player'
 import '../styles/VideoPlayer.scss'
 import Comments from './Comments'
 import CommentForm from './CommentForm'
-import SearchResults from './SearchResults'
  
 function VideoPlayer(props) {
   const [progress, setProgress] = useState("")
