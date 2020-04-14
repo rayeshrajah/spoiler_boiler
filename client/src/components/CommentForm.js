@@ -6,7 +6,6 @@ function CommentForm(props) {
 
   const [comment, setComment] = useState("");
   const [timestampWanted, setTimestampWanted] = useState(0)
-  const [commentData, setCommentData] = useState()
 
   // console.log(props.progressInSeconds)
   
@@ -15,7 +14,7 @@ function CommentForm(props) {
     let commentObj = {
       "message": comment,
       "timestamp_in_seconds": timestampWanted,
-      "video_id": "2" 
+      "video_id": props.videoIdFocused 
     }
     props.addCommentToDatabase(commentObj)
   }

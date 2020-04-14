@@ -17,10 +17,14 @@ function App() {
       comments: [],
       isLoading: true
     }
-    )
-    const {users, videos, comments, isLoading} = state
-    let commentTimestamps = [];
-    comments.forEach(comment => commentTimestamps.push(comment.timestamp_in_seconds))
+  )
+  
+  const [videoUrl, setVideoUrl] = useState("")
+  const [videoIdFocused, setVideoIdFocused] = useState()
+
+  const {users, videos, comments, isLoading} = state
+  let commentTimestamps = [];
+  comments.forEach(comment => commentTimestamps.push(comment.timestamp_in_seconds))
 
     
     useEffect(() => {
@@ -53,7 +57,12 @@ function App() {
     return (
       <div>
         <Navbar />
-        <HomePage videosApiData={videos}/>
+        <HomePage 
+          videosApiData={videos}
+          focusedVideo={setVideoUrl}
+          videoIdFocused={setVideoIdFocused}
+        />
+
         {!isLoading && <VideoPlayer 
           usersApiData={users} 
           commentsApiData={state.comments} 
@@ -61,6 +70,8 @@ function App() {
           videosApiData={videos} 
           commentTimestamps={commentTimestamps}
           addCommentToDatabase={addCommentToDatabase}
+          focusedVideo={videoUrl}
+          videoIdFocused={videoIdFocused}
         />}
       </div>
     );

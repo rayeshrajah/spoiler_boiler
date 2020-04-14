@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player'
 import '../styles/VideoPlayer.scss'
 import Comments from './Comments'
 import CommentForm from './CommentForm'
+import SearchResults from './SearchResults'
  
 function VideoPlayer(props) {
   const [progress, setProgress] = useState("")
@@ -16,7 +17,7 @@ function VideoPlayer(props) {
   function getCommentTimestampsByVideoId(id) {
     let output = [];
     for (let i = 0; i < props.commentsApiData.length; i++) {
-      if (props.commentsApiData[i].video_id === id) {
+      if (props.commentsApiData[i].video_id === props.videoIdFocused) {
         output.push(props.commentsApiData[i].timestamp_in_seconds)
       }
     }
@@ -24,7 +25,7 @@ function VideoPlayer(props) {
   }
   
   // for testing purposes (harcoded to get comments from video_id 2)
-  let timestampsForVideo = getCommentTimestampsByVideoId(2)
+  let timestampsForVideo = getCommentTimestampsByVideoId(props.videoIdFocused)
   
   let htmlForCommentTimestamps = timestampsForVideo.map((timestamp, index) => {
     return (
@@ -53,7 +54,7 @@ function VideoPlayer(props) {
         <ReactPlayer
           ref={reactPlayerLib}
           className="video" 
-          url={props.videosApiData[1].video_url} 
+          url={props.focusedVideo} 
           playing={false}
           controls
           onProgress={(obj) => retrieveKeysFromOnProgress(obj)}
@@ -61,6 +62,7 @@ function VideoPlayer(props) {
           volume={0}
         />
       </div>
+
 
       <div className="spoiler-timebar-master">
         <div className="spoiler-bar">
@@ -71,11 +73,13 @@ function VideoPlayer(props) {
       </div>
 
       <Comments 
-        comments={props.comments} 
+        comments={props.comments} // [{}, {}]
         progressInSeconds={progressInSeconds}
-      />
+        videoIdFocused={props.videoIdFocused}
+        />
 
       <CommentForm 
+        videoIdFocused={props.videoIdFocused}
         progressInSeconds={progressInSeconds} 
         addCommentToDatabase={props.addCommentToDatabase}
         commentsApiData={props.commentsApiData}

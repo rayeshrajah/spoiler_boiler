@@ -6,7 +6,7 @@ function Comments(props) {
   function getCommentTimestampsByVideoId(id) {
     let output = [];
     for (let i = 0; i < props.comments.length; i++) {
-      if (props.comments[i].video_id === id) {
+      if (props.comments[i].video_id === props.videoIdFocused) {
         let commentAndTimestamp = {
           comment: props.comments[i].message,
           timestamp: props.comments[i].timestamp_in_seconds
@@ -16,12 +16,20 @@ function Comments(props) {
     }
     return output // [{comment:"sadasd", timesamp: 12}, {comment:"sadasd", timesamp: 20} ]
   }
-  let isolatedVideo = getCommentTimestampsByVideoId(2)
+
+  console.log("id ====>", props.videoIdFocused)
+  console.log("comments ====>", props.comments)
+  
+  let isolatedVideo = getCommentTimestampsByVideoId(props.videoIdFocused)
+  
+  console.log("isolated video ====>", isolatedVideo)
+
+
   let commentsSortedByTimeDescending = isolatedVideo.sort((a, b) => b.timestamp - a.timestamp)
-  let htmlForCommentMessages = commentsSortedByTimeDescending.map(message => {
+  let htmlForCommentMessages = commentsSortedByTimeDescending.map((message, index) => {
     return (
       <div 
-      key={message.id} 
+      key={index} 
       className="individual-comment" 
       style={message.timestamp <= props.progressInSeconds ? {display: "flex"} : {display: "none"}}
       > 
@@ -31,7 +39,6 @@ function Comments(props) {
       )
     })
 
-  console.log(isolatedVideo)
     
   return (
     <div className="comments-master-container">
