@@ -7,18 +7,29 @@ export default function SignupForm(props){
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    function userInfo(){
-     return axios.post('/users', {
-         user: {
-             "name": name,
-             "email": email,
-             "password": password
-         }
-     }).then(() => {
-        props.displayState(false)
-        props.displayButton(false)
-     })
-       .catch((error) => console.log(error))
+
+    
+    
+    function userInfo() {
+        let userEmails = []
+        axios.get('/users')
+        .then(response => response.data.forEach(user => {
+            userEmails.push(user.email)
+        })).then(() => {
+            if (!userEmails.includes(email)) {
+                return axios.post('/users', {
+                    user: {
+                        "name": name,
+                        "email": email,
+                        "password": password
+                    }
+                }).then(() => {
+                   props.displayState(false)
+                   props.displayButton(false)
+                })
+                  .catch((error) => console.log(error))
+            }
+        })
     }
 
     return (
