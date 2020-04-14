@@ -16,7 +16,7 @@ export default function SignupForm(props){
         .then(response => response.data.forEach(user => {
             userEmails.push(user.email)
         })).then(() => {
-            if (!userEmails.includes(email)) {
+            if (!userEmails.includes(email) && email) {
                 return axios.post('/users', {
                     user: {
                         "name": name,
