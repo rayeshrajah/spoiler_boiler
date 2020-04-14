@@ -86,7 +86,6 @@ function App() {
           focusedVideo={videoUrl}
           videoIdFocused={videoIdFocused}
         />}
-        <Tags taggedComments={comments}/>
       </div>
     );
 

@@ -18,8 +18,6 @@ export default function HomePage(props) {
     setFinalSearch("")
   }
 
-  console.log(search)
-
   return (
     <div>
       <div className="homepage">
