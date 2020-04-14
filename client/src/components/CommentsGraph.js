@@ -11,48 +11,71 @@ export default function CommentsGraph(props) {
   let timestampObj = {};
   let arrayCommentCount = [];
   let arrayTimestampKeys = [];
-  
+
   const timestampData = props.comments.map(
-      (comment) => comment.timestamp_in_seconds
-      );
-      
-    function timestampKeys() {
+    (comment) => comment.timestamp_in_seconds
+  );
+
+  function timestampKeys() {
     timestampData.forEach((element) => {
       if (!timestampObj[element]) timestampObj[element] = 0;
       timestampObj[element] += Number(1);
     });
     return timestampObj;
   }
-    timestampKeys();
-  
-  function timestampCommentCount() {  
-    for(let item in timestampObj){
-        arrayCommentCount.push(timestampObj[item])
+  timestampKeys();
+
+  function timestampCommentCount() {
+    for (let item in timestampObj) {
+      arrayCommentCount.push(timestampObj[item]);
     }
-    return arrayCommentCount
+    return arrayCommentCount;
   }
-  timestampCommentCount()
-  console.log(arrayCommentCount)
-  arrayTimestampKeys = Object.keys(timestampObj)
+  timestampCommentCount();
+  console.log(arrayCommentCount);
+  arrayTimestampKeys = Object.keys(timestampObj);
   const commentsData = {
-    
     labels: arrayTimestampKeys,
     datasets: [
       {
-        label: 'Comments',
-        backgroundColor: 'rgba(75,192,192,1)',
-        borderColor: 'rgba(0,0,0,1)',
+        label: "Comments",
+        backgroundColor: "rgba(75,192,192,1)",
+        borderColor: "rgba(0,0,0,1)",
         borderWidth: 2,
-        data: arrayCommentCount
+        data: arrayCommentCount,
       },
     ],
   };
 
-  return (<div>
-            <Line id="comment-chart" 
-                  data={commentsData}
-
-            />
-
-          </div>);
+  return (
+    <div>
+      <Line
+        id="comment-chart"
+        data={commentsData}
+        options={{
+          title: {
+            display: true,
+            text: "Amount of Comments per Timestamps",
+            fontSize: 20
+          },
+          scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  display: true,
+                },
+              },
+            ],
+            yAxes: [
+              {
+                gridLines: {
+                  display: false,
+                },
+              },
+            ],
+          },
+        }}
+      />
+    </div>
+  );
 }
