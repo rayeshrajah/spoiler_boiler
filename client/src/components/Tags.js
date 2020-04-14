@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/Tags.scss'
 
 function Tags(props) {
 
@@ -16,13 +17,20 @@ function Tags(props) {
   let tagNames = getAllTagNames(props.comments)
   let htmlForTagNames = tagNames.map(tag => {
     return (
-    <div className="tag-capsule">{tag}</div>
+    <div className="tag-capsule">
+      <div className="tag-capsule-flex">
+        {tag}
+      </div>
+    </div>
     )
   })
 
   return (
-    <div className="tage-container">
-      {htmlForTagNames}
+    <div className="tag-master-container">
+      <h2>Tags</h2>
+      <div className="tag-container">
+        {htmlForTagNames}
+      </div>
     </div>
   )
 }

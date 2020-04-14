@@ -1,0 +1,26 @@
+.tag-master-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    margin: 0.5em;
+  }
+  
+  .tag-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  
+    .tag-capsule {
+      background-color: #FF7878;
+      border-radius: 236.5px;
+      width: 100px;
+      margin-right: 1em;
+  
+      .tag-capsule-flex {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
