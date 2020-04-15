@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import '../styles/Tags.scss'
 
 function Tags(props) {
-  const [tag, setTag] = useState("") 
+  const [tag, setTag] = useState("")
+  const [showComments, setShowComments] = useState(false) 
 
   // console.log(props.comments)
   // console.log(props.videoIdFocused)
@@ -31,7 +32,9 @@ function Tags(props) {
       <button 
         className="tag-capsule-flex"
         value={tag}
-        onClick={event => {setTag(event.target.value)}}
+        onClick={event => {
+          setTag(event.target.value)
+        }}
       >
         {tag}
       </button>
@@ -39,6 +42,7 @@ function Tags(props) {
     )
   })
 
+  
   let show = showCommentsByTagName(videoIdFocused, tag).map((comment, index) => {
     return (
       <div 
