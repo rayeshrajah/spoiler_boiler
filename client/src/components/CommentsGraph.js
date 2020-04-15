@@ -52,7 +52,8 @@ export default function CommentsGraph(props) {
   };
 
   return (
-    <div>
+    <div id="commentGraph">
+    
       <Line
         id="comment-chart"
         data={commentsData}

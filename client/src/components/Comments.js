@@ -62,26 +62,26 @@ function Comments(props) {
       </div>
       {commentsMessage && htmlForCommentMessages}
       <div>
+        {commentGraph && <button className='icon-button' onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: false, tagGraph: true})}><FontAwesomeIcon 
+                          icon="caret-right"
+                          size="lg"
+                          /></button>}
         {commentGraph && (
           <CommentsGraph
             comments={props.comments}
             videoIdFocused={props.videoIdFocused}
           />
         )}
+        {tagGraph && <button className='icon-button' onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: true, tagGraph: false})}><FontAwesomeIcon 
+                          icon="caret-left"
+                          size="lg"
+                          /></button>}
         {tagGraph && (
           <TagGraph
             comments={props.comments}
             videoIdFocused={props.videoIdFocused}
           />
         )}
-        {commentGraph && <button className='icon-button' onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: false, tagGraph: true})}><FontAwesomeIcon 
-                          icon="caret-right"
-                          size="lg"
-                          /></button>}
-        {tagGraph && <button className='icon-button' onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: true, tagGraph: false})}><FontAwesomeIcon 
-                          icon="caret-left"
-                          size="lg"
-                          /></button>}
       </div>
       {tags && (
         <Tags comments={props.comments} videoIdFocused={props.videoIdFocused} />
