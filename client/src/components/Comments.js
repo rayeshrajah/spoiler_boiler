@@ -11,10 +11,9 @@ function Comments(props) {
     commentsMessage: true,
     tags: false,
     commentGraph: false,
-    tagGraph: false,
-    selected: false
+    tagGraph: false
   });
-  const { commentsMessage, tags, commentGraph, tagGraph, selected } = showComponents;
+  const { commentsMessage, tags, commentGraph, tagGraph } = showComponents;
   function getCommentTimestampsByVideoId(id) {
     let output = [];
     for (let i = 0; i < props.comments.length; i++) {
@@ -55,7 +54,8 @@ function Comments(props) {
   /* setState({...showComponenet, showComponent[key1] = true, showComponent[key2] = false}) */
 
   let ourStyles = {
-    backgroundColor: "pink"
+    backgroundColor: "#ff5757",
+    color: "rgba(255, 255, 255, 0.653)"
   }
 
   return (
@@ -64,17 +64,36 @@ function Comments(props) {
         <div>
         <button 
           className="comment-button"
-          style={selected ? ourStyles : {backgroundColor: "white"}}
-        onClick={() => {
-          setShowComponents({commentsMessage: true, tags: false, commentGraph: false, tagGraph: false, selected: true})}
+          style={commentsMessage ? ourStyles : {backgroundColor: "white"}}
+          onClick={() => {
+          setShowComponents({commentsMessage: true, tags: false, commentGraph: false, tagGraph: false})}
         }>
           Comments
         </button>
         </div>
-        {<Button lineGraph onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: true, tagGraph: false})}>Comment Graph</Button>}
+        <button 
+          className="comment-button"
+          style={commentGraph ? ourStyles : {backgroundColor: "white"}}
+          onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: true, tagGraph: false})}
+        >
+          Comment Graph
+        </button>
 
-        <Button tags onClick={() => setShowComponents({commentsMessage: false, tags: true, commentGraph: false, tagGraph: false})}>Tags</Button>
-        {<Button barGraph onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: false, tagGraph: true})}>Tag Graph</Button>}
+        <button 
+          className="comment-button"
+          style={tags ? ourStyles : {backgroundColor: "white"}}
+          onClick={() => setShowComponents({commentsMessage: false, tags: true, commentGraph: false, tagGraph: false})}
+        >
+          Tags
+        </button>
+
+        <button 
+          className="comment-button"
+          style={tagGraph ? ourStyles : {backgroundColor: "white"}}
+          onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: false, tagGraph: true})}
+        >
+          Tag Graph
+        </button>
       </div>
 
 
