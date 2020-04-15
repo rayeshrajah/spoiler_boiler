@@ -35,7 +35,7 @@ export default function CommentsGraph(props) {
     return arrayCommentCount;
   }
   timestampCommentCount();
-  console.log(arrayCommentCount);
+  // console.log(arrayCommentCount);
   arrayTimestampKeys = Object.keys(timestampObj);
   const commentsData = {
     labels: arrayTimestampKeys,

@@ -64,7 +64,7 @@ function App() {
         })
       }
 
-      console.log(comments)
+      // console.log(comments)
 
     return (
       <div>

@@ -42,7 +42,7 @@ function Comments(props) {
       {htmlForCommentMessages}
     <CommentsGraph comments={props.comments} videoIdFocused={props.videoIdFocused}/>
 
-      <Tags comments={props.comments}/>
+      <Tags comments={props.comments} videoIdFocused={props.videoIdFocused}/>
     </div>
     
   )
