@@ -10,7 +10,6 @@ function Tags(props) {
   let videoIdFocused = props.videoIdFocused
 
   function showCommentsByTagName(videoId, tagName) {
-    setTag(tagName)
     let commentsByVideoIdAndTag = allComments.filter(comment => comment.tag === tagName && comment.video_id === videoId)
     return commentsByVideoIdAndTag
   }
@@ -32,7 +31,7 @@ function Tags(props) {
       <button 
         className="tag-capsule-flex"
         value={tag}
-        onClick={event => showCommentsByTagName(videoIdFocused, event.target.value)}
+        onClick={event => {setTag(event.target.value)}}
       >
         {tag}
       </button>
@@ -40,8 +39,18 @@ function Tags(props) {
     )
   })
 
-  // let show = showCommentsByTagName(videoIdFocused, tag).map(comment => {console.log(comment)})
-  let show = showCommentsByTagName(videoIdFocused, tag)
+  let show = showCommentsByTagName(videoIdFocused, tag).map((comment, index) => {
+    return (
+      <div 
+      key={index} 
+      className="individual-comment" 
+      > 
+          <img id="user-avatar" src="https://www.placecage.com/300/300"/>
+          <p>{comment.message}</p>
+      </div>
+    )
+  })
+  // let show = showCommentsByTagName(videoIdFocused, tag)
   console.log(show)
 
   return (
@@ -50,7 +59,7 @@ function Tags(props) {
       <div className="tag-container">
         {htmlForTagNames}
       </div>
-      {/* {show} */}
+      {show}
     </div>
   )
 }
