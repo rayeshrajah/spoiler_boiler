@@ -21,26 +21,28 @@ function CommentForm(props) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="comment-form-master-container">
-        <div className="comment-form"> 
-            <img src="https://www.placecage.com/300/300"/>
-            <label for="comment"></label>
+          <div class="user-input-container">
+            <div className="comment-form"> 
+                <img src="https://www.placecage.com/300/300"/>
+                <label for="comment"></label>
+                <input 
+                  id="comment"
+                  type="text" 
+                  placeholder={`Spoil something @ ${props.progressInSeconds} seconds!`}
+                  value={comment}
+                  onChange={event => setComment(event.target.value)}
+                  onClick={() => setTimestampWanted(props.progressInSeconds)}
+                />
+            </div>
+            <label for="tag"></label>
             <input 
-              id="comment"
+              id="tag"
               type="text" 
-              placeholder={`Spoil something @ ${props.progressInSeconds} seconds!`}
-              value={comment}
-              onChange={event => setComment(event.target.value)}
-              onClick={() => setTimestampWanted(props.progressInSeconds)}
+              placeholder="Add a tag!"
+              value={tag}
+              onChange={event => setTag(event.target.value)}
             />
-        </div>
-        <label for="tag"></label>
-        <input 
-          id="tag"
-          type="text" 
-          placeholder="Add a tag!"
-          value={tag}
-          onChange={event => setTag(event.target.value)}
-        />
+          </div>
         <button className="comment-button">SPOILER</button>
       </div>
     </form>

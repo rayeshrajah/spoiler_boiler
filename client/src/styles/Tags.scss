@@ -29,4 +29,18 @@
       background-color: red;
     }
   }
+
+  button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    padding: 0;
+  }
+
+  #user-avatar {
+    margin-right: 1em;
+  }
 }
+
+

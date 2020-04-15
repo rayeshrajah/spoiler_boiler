@@ -1,12 +1,14 @@
 .video-master {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  max-width: 800px;
+  min-width: 500px;
 
   .video-container {
     background-color: #C4C4C4;
     width: 100%;
-    max-width: 500px;
+    max-width: 800px;
+    min-width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;

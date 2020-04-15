@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/Tags.scss'
 
 function Tags(props) {
+  const [tag, setTag] = useState("")
+  const [clicked, setClicked] = useState(false)
 
-  console.log(props.comments)
+  let allComments = props.comments
+  let videoIdFocused = props.videoIdFocused
+
+  function showCommentsByTagName(videoId, tagName) {
+    return allComments.filter(comment => comment.tag === tagName && comment.video_id === videoId)
+  }
 
   function getAllTagNames(commentsData) {
     let tagNames = []
@@ -14,16 +21,46 @@ function Tags(props) {
     return tagNames
   }
 
+  let selected = {
+    backgroundColor: "white",
+    borderRadius: "236.5px"
+  }
   let tagNames = getAllTagNames(props.comments)
-  let htmlForTagNames = tagNames.map(tag => {
+  let htmlForTagNames = tagNames.map((tagName, index) => {
     return (
-    <div className="tag-capsule">
-      <div className="tag-capsule-flex">
-        {tag}
-      </div>
+    <div key={index} className="tag-capsule" >
+      <button 
+        className="tag-capsule-flex"
+        name="tag"
+        style={clicked && tag === tagName ? selected : {border: "none"}}
+        value={tagName}
+        onClick={event => {
+          let tag = event.target.value
+          setClicked(true)
+          setTag("")
+          setTimeout(function () {
+            setTag(tag)
+          }, 50) 
+        }}
+      >
+        {tagName}
+      </button>
     </div>
     )
   })
+
+  // [html, html .....]
+  let htmlForTaggedComments = showCommentsByTagName(videoIdFocused, tag).map((comment, index) => {
+    return (
+      <div 
+      className="individual-comment" 
+      > 
+          <img id="user-avatar" src="https://www.placecage.com/300/300"/>
+          <p>{comment.message}</p>
+      </div>
+    )
+  })
+
 
   return (
     <div className="tag-master-container">
@@ -31,6 +68,7 @@ function Tags(props) {
       <div className="tag-container">
         {htmlForTagNames}
       </div>
+        {htmlForTaggedComments}
     </div>
   )
 }

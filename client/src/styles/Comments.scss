@@ -1,6 +1,6 @@
 .comments-master-container {
   background-color: #FFCECE;
-  height: 300px;
+  height: 400px;
   width: 100%;
   overflow: scroll;
 
@@ -37,9 +37,12 @@
 
   }
   .component-buttons{
+    margin-top: 0.7em;
     display:flex;
     flex-direction: row;
     justify-content: space-around;
+    outline: none;
+    border: none;
   }
   .icon-button{
     background: none;

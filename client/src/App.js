@@ -66,7 +66,7 @@ function App() {
         })
       }
 
-      console.log(comments)
+      // console.log(comments)
 
     return (
       <div>
@@ -78,16 +78,18 @@ function App() {
           addVideoToDatabase={addVideoToDatabase}
         />
 
-        {!isLoading && <VideoPlayer 
-          usersApiData={users} 
-          commentsApiData={state.comments} 
-          comments={state.comments}
-          videosApiData={videos} 
-          commentTimestamps={commentTimestamps}
-          addCommentToDatabase={addCommentToDatabase}
-          focusedVideo={videoUrl}
-          videoIdFocused={videoIdFocused}
-        />}
+        <div className="entire-video-component">
+          {!isLoading && <VideoPlayer 
+            usersApiData={users} 
+            commentsApiData={state.comments} 
+            comments={state.comments}
+            videosApiData={videos} 
+            commentTimestamps={commentTimestamps}
+            addCommentToDatabase={addCommentToDatabase}
+            focusedVideo={videoUrl}
+            videoIdFocused={videoIdFocused}
+          />}
+        </div>
       </div>
     );
 
