@@ -60,22 +60,28 @@ function Comments(props) {
         <Button commentsgraph onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: true, tagGraph: false})}>Graphs</Button>
         <Button tags onClick={() => setShowComponents({commentsMessage: false, tags: true, commentGraph: false, tagGraph: false})}>Tags</Button>
       </div>
-      {commentsMessage && htmlForCommentMessages}
-      <div>
+
+      <div className="select-graph">
+        {tagGraph && <button className='icon-button' onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: true, tagGraph: false})}><FontAwesomeIcon 
+                          icon="caret-left"
+                          size="6x"
+                          /></button>}
         {commentGraph && <button className='icon-button' onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: false, tagGraph: true})}><FontAwesomeIcon 
                           icon="caret-right"
                           size="lg"
-                          /></button>}
+                          />Comment</button>}
+      </div>
+
+      {commentsMessage && htmlForCommentMessages}
+      <div>
+        
         {commentGraph && (
           <CommentsGraph
             comments={props.comments}
             videoIdFocused={props.videoIdFocused}
           />
         )}
-        {tagGraph && <button className='icon-button' onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: true, tagGraph: false})}><FontAwesomeIcon 
-                          icon="caret-left"
-                          size="lg"
-                          /></button>}
+
         {tagGraph && (
           <TagGraph
             comments={props.comments}
