@@ -55,9 +55,9 @@ function Comments(props) {
   return (
     <div className="comments-master-container">
       <div className="component-buttons">
-        <Button comments>Comments</Button>
-        <Button graphs>Graphs</Button>
-        <Button tags>Tags</Button>
+        <Button comments onClick={() => setShowComponents({commentsMessage: true, tags: false, commentGraph: false, tagGraph: false})}>Comments</Button>
+        <Button graphs onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: true, tagGraph: false})}>Graphs</Button>
+        <Button tags onClick={() => setShowComponents({commentsMessage: false, tags: true, commentGraph: false, tagGraph: false})}>Tags</Button>
       </div>
       {commentsMessage && htmlForCommentMessages}
       <div>
