@@ -47,6 +47,11 @@ export default function TagGraph(props) {
     <Bar
       data={tagData}
       options={{
+        title: {
+            display: true,
+            text: "Name Tags per video",
+            fontSize: 20,
+        },
         scales: {
           xAxes: [
             {
@@ -62,6 +67,8 @@ export default function TagGraph(props) {
               },
               ticks: {
                 beginAtZero: true,
+                callback: function (value) { if (Number.isInteger(value)) { return value; } },
+                stepSize: 1
               },
             },
           ],

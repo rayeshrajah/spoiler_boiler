@@ -4,6 +4,7 @@ import CommentsGraph from "./CommentsGraph";
 import Tags from "./Tags";
 import TagGraph from "./TagGraph";
 import Button from "./Button";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Comments(props) {
   const [showComponents, setShowComponents] = useState({
@@ -73,6 +74,14 @@ function Comments(props) {
             videoIdFocused={props.videoIdFocused}
           />
         )}
+        {commentGraph && <button className='icon-button' onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: false, tagGraph: true})}><FontAwesomeIcon 
+                          icon="caret-right"
+                          size="lg"
+                          /></button>}
+        {tagGraph && <button className='icon-button' onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: true, tagGraph: false})}><FontAwesomeIcon 
+                          icon="caret-left"
+                          size="lg"
+                          /></button>}
       </div>
       {tags && (
         <Tags comments={props.comments} videoIdFocused={props.videoIdFocused} />

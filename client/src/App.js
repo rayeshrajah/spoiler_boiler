@@ -3,12 +3,14 @@ import './styles/App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 import Navbar from './components/Navbar'
-import SignupForm from './components/SignupForm';
 import VideoPlayer from './components/VideoPlayer'
 import HomePage from './components/HomePage';
-import Tags from './components/Tags'
-import SearchResults from './components/SearchResults';
-import CommentForm from './components/CommentForm';
+
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faCaretRight, faCaretLeft);
 
 function App() {
   const [state, setState] = useState(
