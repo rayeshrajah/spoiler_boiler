@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import '../styles/Tags.scss'
 
 function Tags(props) {
@@ -32,7 +32,11 @@ function Tags(props) {
         name="tag"
         value={tag}
         onClick={event => {
-          setTag(event.target.value)
+          let tag = event.target.value
+          setTag("")
+          setTimeout(function () {
+            setTag(tag)
+          }, 200) 
         }}
       >
         {tag}
@@ -45,7 +49,6 @@ function Tags(props) {
   let htmlForTaggedComments = showCommentsByTagName(videoIdFocused, tag).map((comment, index) => {
     return (
       <div 
-      key={index} 
       className="individual-comment" 
       > 
           <img id="user-avatar" src="https://www.placecage.com/300/300"/>
@@ -61,7 +64,7 @@ function Tags(props) {
       <div className="tag-container">
         {htmlForTagNames}
       </div>
-      {htmlForTaggedComments}
+        {htmlForTaggedComments}
     </div>
   )
 }
