@@ -61,6 +61,8 @@ function Tags(props) {
     )
   })
 
+  console.log(htmlForTaggedComments)
+
 
   return (
     <div className="tag-master-container">
