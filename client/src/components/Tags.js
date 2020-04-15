@@ -3,7 +3,6 @@ import '../styles/Tags.scss'
 
 function Tags(props) {
   const [tag, setTag] = useState("")
-  const [showComments, setShowComments] = useState(false) 
 
   // console.log(props.comments)
   // console.log(props.videoIdFocused)
@@ -11,8 +10,7 @@ function Tags(props) {
   let videoIdFocused = props.videoIdFocused
 
   function showCommentsByTagName(videoId, tagName) {
-    let commentsByVideoIdAndTag = allComments.filter(comment => comment.tag === tagName && comment.video_id === videoId)
-    return commentsByVideoIdAndTag
+    return allComments.filter(comment => comment.tag === tagName && comment.video_id === videoId)
   }
 
   function getAllTagNames(commentsData) {
@@ -25,12 +23,13 @@ function Tags(props) {
   }
 
   let tagNames = getAllTagNames(props.comments)
-  let htmlForTagNames = tagNames.map(tag => {
+  let htmlForTagNames = tagNames.map((tag, index) => {
     // console.log(tag)
     return (
-    <div className="tag-capsule" >
+    <div key={index} className="tag-capsule" >
       <button 
         className="tag-capsule-flex"
+        name="tag"
         value={tag}
         onClick={event => {
           setTag(event.target.value)
@@ -42,8 +41,8 @@ function Tags(props) {
     )
   })
 
-  
-  let show = showCommentsByTagName(videoIdFocused, tag).map((comment, index) => {
+  // [html, html .....]
+  let htmlForTaggedComments = showCommentsByTagName(videoIdFocused, tag).map((comment, index) => {
     return (
       <div 
       key={index} 
@@ -54,8 +53,7 @@ function Tags(props) {
       </div>
     )
   })
-  // let show = showCommentsByTagName(videoIdFocused, tag)
-  console.log(show)
+
 
   return (
     <div className="tag-master-container">
@@ -63,7 +61,7 @@ function Tags(props) {
       <div className="tag-container">
         {htmlForTagNames}
       </div>
-      {show}
+      {htmlForTaggedComments}
     </div>
   )
 }
