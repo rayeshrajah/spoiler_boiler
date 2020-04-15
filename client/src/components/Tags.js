@@ -3,9 +3,8 @@ import '../styles/Tags.scss'
 
 function Tags(props) {
   const [tag, setTag] = useState("")
+  const [clicked, setClicked] = useState(false)
 
-  // console.log(props.comments)
-  // console.log(props.videoIdFocused)
   let allComments = props.comments
   let videoIdFocused = props.videoIdFocused
 
@@ -22,24 +21,29 @@ function Tags(props) {
     return tagNames
   }
 
+  let selected = {
+    backgroundColor: "white",
+    borderRadius: "236.5px"
+  }
   let tagNames = getAllTagNames(props.comments)
-  let htmlForTagNames = tagNames.map((tag, index) => {
-    // console.log(tag)
+  let htmlForTagNames = tagNames.map((tagName, index) => {
     return (
     <div key={index} className="tag-capsule" >
       <button 
         className="tag-capsule-flex"
         name="tag"
-        value={tag}
+        style={clicked && tag === tagName ? selected : {border: "none"}}
+        value={tagName}
         onClick={event => {
           let tag = event.target.value
+          setClicked(true)
           setTag("")
           setTimeout(function () {
             setTag(tag)
-          }, 200) 
+          }, 50) 
         }}
       >
-        {tag}
+        {tagName}
       </button>
     </div>
     )
