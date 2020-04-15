@@ -80,6 +80,9 @@ export default function CommentsGraph(props) {
                 gridLines: {
                   display: false,
                 },
+                ticks: {
+                beginAtZero: true,
+                },
               },
             ],
           },

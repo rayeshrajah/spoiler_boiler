@@ -48,8 +48,18 @@ export default function TagGraph(props) {
       data={tagData}
       options={{
         scales: {
+          xAxes: [
+            {
+              gridLines: {
+                display: false,
+              },
+            },
+          ],
           yAxes: [
             {
+              gridLines: {
+                display: false,
+              },
               ticks: {
                 beginAtZero: true,
               },

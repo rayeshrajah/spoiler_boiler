@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/Comments.scss'
 import CommentsGraph from './CommentsGraph';
 import Tags from './Tags'
 
 
 function Comments(props) {
+const [showComponents, setShowComponents] = useState({comments: true, tags: false, commentGraph: false, tagGraph:false})
 
   function getCommentTimestampsByVideoId(id) {
     let output = [];
