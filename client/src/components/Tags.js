@@ -1,6 +1,5 @@
 import React from 'react'
 import '../styles/Tags.scss'
-import TagGraph from './TagGraph'
 
 function Tags(props) {
 
@@ -31,9 +30,6 @@ function Tags(props) {
       <h2>Tags</h2>
       <div className="tag-container">
         {htmlForTagNames}
-      </div>
-      <div>
-        <TagGraph comments={props.comments} videoIdFocused={props.videoIdFocused}/>
       </div>
     </div>
   )

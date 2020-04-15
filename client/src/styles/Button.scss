@@ -7,12 +7,13 @@
     height: 2rem;
     line-height: 1.2rem;
     margin-right: 1rem;
-    width: 5rem;
+    width: 6rem;
     border-width: 1px;
     border-style: solid;
     border-color: $white-color;
     color: $white-color;
     background-color: $white-color;
+    outline: none;
 }
 
 @keyframes bounce {
@@ -76,4 +77,22 @@
 
 .button--search:focus{
     outline: none;
+}
+
+.button--comments{
+    color: $pink-color;
+    border-color: $pink-color;
+    background-color: $white-color;
+}
+
+.button--graphs{
+    color: $pink-color;
+    border-color: $pink-color;
+    background-color: $white-color;
+}
+
+.button--tags{
+    color: $pink-color;
+    border-color: $pink-color;
+    background-color: $white-color;
 }
