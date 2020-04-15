@@ -1,3 +1,7 @@
+@import "./Variables.scss";
+
+
+
 .comments-master-container {
   background-color: #FFCECE;
   height: 400px;
@@ -50,8 +54,12 @@
     outline: none;
   }
 
-  .select-graph {
-    display: flex;
-    justify-content: center;
+  .comment-button {
+    color: $pink-color;
+    border-color: $pink-color;
+    background-color: $white-color;
+    height: 50px;
+    border-radius: 1rem;
+    outline: 0!important;
   }
 }

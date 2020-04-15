@@ -83,16 +83,39 @@
     color: $pink-color;
     border-color: $pink-color;
     background-color: $white-color;
+    height: 50px;
 }
 
 .button--commentsgraph{
     color: $pink-color;
     border-color: $pink-color;
     background-color: $white-color;
+    height: 50px;
 }
 
 .button--tags{
     color: $pink-color;
     border-color: $pink-color;
     background-color: $white-color;
+    height: 50px;
+}
+
+.button--barGraph {
+    color: $pink-color;
+    border-color: $pink-color;
+    background-color: $white-color;
+    height: 50px;
+
+}
+.button--lineGraph {
+    color: $pink-color;
+    border-color: $pink-color;
+    background-color: $white-color;
+    height: 50px;
+}
+.button--lineGraph:hover {
+    background-color: blue;
+}
+.button--lineGraph:active {
+    background-color: orange;
 }

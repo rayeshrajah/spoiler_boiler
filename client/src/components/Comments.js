@@ -12,8 +12,9 @@ function Comments(props) {
     tags: false,
     commentGraph: false,
     tagGraph: false,
+    selected: false
   });
-  const { commentsMessage, tags, commentGraph, tagGraph } = showComponents;
+  const { commentsMessage, tags, commentGraph, tagGraph, selected } = showComponents;
   function getCommentTimestampsByVideoId(id) {
     let output = [];
     for (let i = 0; i < props.comments.length; i++) {
@@ -53,24 +54,29 @@ function Comments(props) {
   );
   /* setState({...showComponenet, showComponent[key1] = true, showComponent[key2] = false}) */
 
+  let ourStyles = {
+    backgroundColor: "pink"
+  }
+
   return (
     <div className="comments-master-container">
       <div className="component-buttons">
-        <Button comments onClick={() => setShowComponents({commentsMessage: true, tags: false, commentGraph: false, tagGraph: false})}>Comments</Button>
-        <Button commentsgraph onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: true, tagGraph: false})}>Graphs</Button>
+        <div>
+        <button 
+          className="comment-button"
+          style={selected ? ourStyles : {backgroundColor: "white"}}
+        onClick={() => {
+          setShowComponents({commentsMessage: true, tags: false, commentGraph: false, tagGraph: false, selected: true})}
+        }>
+          Comments
+        </button>
+        </div>
+        {<Button lineGraph onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: true, tagGraph: false})}>Comment Graph</Button>}
+
         <Button tags onClick={() => setShowComponents({commentsMessage: false, tags: true, commentGraph: false, tagGraph: false})}>Tags</Button>
+        {<Button barGraph onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: false, tagGraph: true})}>Tag Graph</Button>}
       </div>
 
-      <div className="select-graph">
-        {tagGraph && <button className='icon-button' onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: true, tagGraph: false})}><FontAwesomeIcon 
-                          icon="caret-left"
-                          size="6x"
-                          /></button>}
-        {commentGraph && <button className='icon-button' onClick={() => setShowComponents({commentsMessage: false, tags: false, commentGraph: false, tagGraph: true})}><FontAwesomeIcon 
-                          icon="caret-right"
-                          size="lg"
-                          />Comment</button>}
-      </div>
 
       {commentsMessage && htmlForCommentMessages}
       <div>

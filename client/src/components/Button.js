@@ -11,7 +11,9 @@ export default function Button(props){
         'button--comments': props.comments,
         'button--commentsgraph': props.commentsgraph,
         'button--tags': props.tags,
-        'button--tagsgraph': props.tagGraph 
+        'button--tagsgraph': props.tagGraph, 
+        'button--barGraph': props.barGraph,
+        'button--lineGraph': props.lineGraph
     })
     return (
        <button className = {buttonClass} 
