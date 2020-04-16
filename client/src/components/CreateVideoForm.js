@@ -48,11 +48,12 @@ function CreateVideoForm(props) {
         
       </div>
 
-        <Button createVideo type="submit">
-          <iframe 
-            src="https://gifer.com/embed/GlIU"
-          >
-          </iframe>
+        <Button createVideo type="submit" className="button-submit">
+            <iframe 
+              src="https://gifer.com/embed/GlIU"
+              id="fire-gif"
+            >
+            </iframe>
         </Button>
           
     </form>
