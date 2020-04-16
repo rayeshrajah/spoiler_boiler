@@ -120,9 +120,12 @@
     background-color: orange;
 }
 .button--createVideo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: $white-color;
     border-color: $white-color;
-    background-color: $pink-color;
+    background-color: #ff5757;
     text-align: center;
     height: 70px;
     width: 90%;
@@ -132,4 +135,24 @@
     margin: 0;
     padding: 0;
     margin-top: 0.5rem;
+}
+.button--createVideo:before {
+    content: "Add Video";
+}
+.button--createVideo:hover {
+    iframe {
+        visibility: visible;
+        height: 50%;
+        width: 100%;
+        border-radius: 236.5px;
+    }
+}
+.button--createVideo:hover:before {
+    content: "";
+}
+.button--createVideo:hover:after {
+    // content: "🔥🔥🔥🔥🔥🔥🔥🔥";
+
+    // background-image: url('https://i.gifer.com/fetch/w300-preview/d9/d9dd657cfef3fb5188596ace989a7dd7.gif');
+    // content: url("https://i.gifer.com/fetch/w300-preview/d9/d9dd657cfef3fb5188596ace989a7dd7.gif");
 }

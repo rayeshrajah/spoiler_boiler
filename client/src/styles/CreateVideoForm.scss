@@ -1,15 +1,30 @@
+.video-form-master-container {
+  display: flex;
+  justify-content: center;
+}
+
+iframe {
+  height: 0px;
+  width: 0px;
+  visibility: hidden;
+}
+
 #video-form {
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  min-width: 550px;
   align-items: center;
   margin-bottom: 20px;
+  input:focus,input:active {
+    outline: none !important;
+    box-shadow: none;
+  }
 
   #video-url-master {
     display: flex;
     align-items: center;
-    background-color: #ff7878;
+    background-color: #ff5757;
     border-radius: 236.5px;
     border: none;
     width: 90%;
@@ -21,19 +36,25 @@
       width: 30%;
       padding: 1em;
       margin: 0.2em;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: 500;
     }
 
     #video-url {
       color: white;
       outline: none;
       border: none;
-      background-color: #ff7878;
+      background-color: #ff5757;
       border-radius: 236.5;
-      width: 200px;
+      width: 60%;
       padding-right: 1em;
+      text-align: center;
+      font-size: 1.5em;
     }
     #video-url::placeholder {
       color:white;
+      text-align: center;
     }
   }
 
@@ -41,7 +62,7 @@
   #video-name-master {
     display: flex;
     align-items: center;
-    background-color: #ff7878;
+    background-color: #ff5757;
     border-radius: 236.5px;
     border: none;
     width: 90%;
@@ -54,48 +75,24 @@
       width: 30%;
       padding: 1em;
       margin: 0.2em;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: 500;
     }
 
     #video-name {
       color: white;
-      outline: none;
       border: none;
-      background-color: #ff7878;
+      background-color: #ff5757;
       border-radius: 236.5;
-      width: 200px;
+      width: 60%;
       padding-right: 1em;
+      text-align: center;
+      font-size: 1.5em;
     }
     #video-name::placeholder {
       color:white;
-    }
-  }
-
-
-  #checkbox-and-add {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #ff7878;
-    border-radius: 236.5px;
-    border: none;
-    width: 90%;
-    color: white;
-    margin-top: 0.5em;
-    height: 60px;
-
-    #checkbox-container {
-      padding: 1em;
-      input {
-        margin-right: 1em;
-      }
-    }
-
-    button {
-      outline: none;
-      border: none;
-      background-color: #fff;
-      padding: 0.7em;
-      border-radius: 236.5px;
+      text-align: center;
     }
   }
 
