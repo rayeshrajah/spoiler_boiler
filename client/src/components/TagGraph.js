@@ -50,23 +50,38 @@ export default function TagGraph(props) {
         title: {
             display: true,
             text: "Name Tags per video",
-            fontSize: 20,
+            fontSize: 23,
+            fontColor: "#000"
         },
         scales: {
           xAxes: [
             {
               gridLines: {
-                display: false,
+                color: "transparent",
+                display: true,
+                drawBorder: false,
+                zeroLineColor: "#000",
+                zeroLineWidth: 5
               },
+              ticks: {
+                fontColor: "#000",
+                fontSize: 15
+              }
             },
           ],
           yAxes: [
             {
               gridLines: {
-                display: false,
+                color: "transparent",
+                display: true,
+                drawBorder: false,
+                zeroLineColor: "#fff",
+                zeroLineWidth: 5
               },
               ticks: {
                 beginAtZero: true,
+                fontSize: 15,
+                fontColor: "#000",
                 callback: function (value) { if (Number.isInteger(value)) { return value; } },
                 stepSize: 1
               },

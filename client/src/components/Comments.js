@@ -8,10 +8,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Comments(props) {
   const [showComponents, setShowComponents] = useState({
-    commentsMessage: true,
+    commentsMessage: false,
     tags: false,
     commentGraph: false,
-    tagGraph: false
+    tagGraph: true
   });
   const { commentsMessage, tags, commentGraph, tagGraph } = showComponents;
   function getCommentTimestampsByVideoId(id) {

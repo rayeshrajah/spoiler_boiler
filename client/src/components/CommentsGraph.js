@@ -66,25 +66,40 @@ export default function CommentsGraph(props) {
           title: {
             display: true,
             text: "Amount of Comments per Timestamps",
-            fontSize: 20,
+            fontSize: 23,
+            fontColor: "#000"
           },
           scales: {
             xAxes: [
               {
                 gridLines: {
-                  display: false,
+                  color: "transparent",
+                  display: true,
+                  drawBorder: false,
+                  zeroLineColor: "#000",
+                  zeroLineWidth: 5
                 },
+                ticks: {
+                  fontColor: "#000",
+                  fontSize: 15
+                }
               },
             ],
             yAxes: [
               {
                 gridLines: {
-                  display: false,
+                  color: "transparent",
+                  display: true,
+                  drawBorder: false,
+                  zeroLineColor: "#fff",
+                  zeroLineWidth: 5
                 },
                 ticks: {
-                beginAtZero: true,
-                callback: function (value) { if (Number.isInteger(value)) { return value; } },
-                stepSize: 1
+                  fontColor: "#000",
+                  fontSize: 15,
+                  beginAtZero: true,
+                  callback: function (value) { if (Number.isInteger(value)) { return value; } },
+                  stepSize: 1
                 },
               },
             ],
