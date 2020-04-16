@@ -26,18 +26,25 @@
     animation: fadeInLeft 1s;
     
     p {
-      position: relative;
       border-radius: 270.5px;
       font-size: 18px;
-      height: 60px;
+      min-height: 60px;
+      height: 100%;
       width: 300px;
       background-color: white;
       text-align: center;
+      padding: 0 10px;
+
+    }
+
+    .timestamp-badge-container {
+      position: relative;
+      width: 10px;
 
       #timestamp-badge {
         position: absolute;
-        bottom: 10%;
-        right: 7%;
+        top: 0;
+        right: 0;
       }
     }
 
