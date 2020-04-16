@@ -46,7 +46,7 @@ function Comments(props) {
           }
         >
           <img src="https://www.placecage.com/300/300" />
-          <p>{message.comment}</p>
+          <p>{message.comment} <span id="timestamp-badge" className="badge badge-danger">@{message.timestamp} sec</span></p>
         </div>
       );
     }

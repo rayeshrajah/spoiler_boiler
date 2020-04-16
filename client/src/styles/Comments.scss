@@ -26,18 +26,27 @@
     animation: fadeInLeft 1s;
     
     p {
+      position: relative;
       border-radius: 270.5px;
       font-size: 18px;
       height: 60px;
       width: 300px;
       background-color: white;
       text-align: center;
+
+      #timestamp-badge {
+        position: absolute;
+        bottom: 10%;
+        right: 7%;
+      }
     }
 
     img {
       height: 60px;
       border-radius: 50%;
     }
+
+
 
   }
   .component-buttons{
