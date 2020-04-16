@@ -30,7 +30,11 @@ export default function SearchResults(props) {
           height="100%"
           width="100%"
           light={true}
-          onClick={() => focusVideo(video)}
+          onClick={() => {
+            focusVideo(video)
+            console.log("before show vdeio player", props.showVideoPlayerState)
+            props.showVideoPlayer(true)
+          }}
         />
         </div>
       )
@@ -46,7 +50,11 @@ export default function SearchResults(props) {
           height="100%"
           width="100%"
           light={true}
-          onClick={() => focusVideo(video)}
+          onClick={() => {
+            focusVideo(video)
+            console.log("before show vdeio player", props.showVideoPlayerState)
+            props.showVideoPlayer(true)
+          }}
         />
         </div>
       );

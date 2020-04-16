@@ -24,6 +24,7 @@ function App() {
   
   const [videoUrl, setVideoUrl] = useState("")
   const [videoIdFocused, setVideoIdFocused] = useState()
+  const [showVideoPlayer, setShowVideoPlayer] = useState(false)
 
   const {users, videos, comments, isLoading} = state
   let commentTimestamps = [];
@@ -78,10 +79,11 @@ function App() {
           focusedVideo={setVideoUrl}
           videoIdFocused={setVideoIdFocused}
           addVideoToDatabase={addVideoToDatabase}
+          showVideoPlayer={setShowVideoPlayer}
         />
 
         <div className="entire-video-component">
-          {!isLoading && <VideoPlayer 
+          {(!isLoading && showVideoPlayer) && <VideoPlayer 
             usersApiData={users} 
             commentsApiData={state.comments} 
             comments={state.comments}

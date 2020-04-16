@@ -52,6 +52,7 @@ export default function HomePage(props) {
                                 videoIdFocused={props.videoIdFocused}
                                 setShow={setShow}
                                 show={show}
+                                showVideoPlayer={props.showVideoPlayer}
                                 />}
       {createForm && <CreateVideoForm setCreateForm={setCreateForm} addVideoToDatabase={props.addVideoToDatabase}/>}
     </div>
