@@ -42,7 +42,7 @@ function App() {
         comments: all[2].data,
         isLoading: false
         })
-        console.log(JSON.stringify(all))})
+        })
 
       },[])
 

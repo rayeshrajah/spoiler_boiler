@@ -12,16 +12,18 @@ export default function Navbar(){
     function signup(){
         if(displaySignup){
             setDisplaySignup(false)
+        } else {
+            setDisplayLogin(false)
+            setDisplaySignup(true)
         }
-        setDisplayLogin(false)
-        setDisplaySignup(true)
     }
     function login(){
         if(displayLogin){
             setDisplayLogin(false)
+        } else {
+            setDisplaySignup(false)
+            setDisplayLogin(true)
         }
-        setDisplaySignup(false)
-        setDisplayLogin(true)
     }
     function logout(){
         setButtonDisplay(true)
