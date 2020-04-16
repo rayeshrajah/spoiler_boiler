@@ -31,12 +31,15 @@ export default function HomePage(props) {
         <div className="homepage-buttons">
           <Button
             search
-            onClick={() => setFinalSearch(search)}>
+            onClick={() => {
+              setFinalSearch(search)
+              setSearch("")
+            }}>
             BOILER
           </Button>
           <Button 
             search
-            onClick={() => setCreateForm(true)}
+            onClick={() => setCreateForm(!createForm)}
           >
             CREATE
           </Button>
@@ -50,7 +53,7 @@ export default function HomePage(props) {
                                 setShow={setShow}
                                 show={show}
                                 />}
-      {createForm && <CreateVideoForm addVideoToDatabase={props.addVideoToDatabase}/>}
+      {createForm && <CreateVideoForm setCreateForm={setCreateForm} addVideoToDatabase={props.addVideoToDatabase}/>}
     </div>
   );
 }

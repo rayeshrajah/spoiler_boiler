@@ -14,6 +14,7 @@ function CreateVideoForm(props) {
       "video_url": videoUrl 
     }
     props.addVideoToDatabase(videoObj)
+    props.setCreateForm(false)
   }
 
   return (
