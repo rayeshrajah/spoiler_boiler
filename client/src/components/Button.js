@@ -9,11 +9,7 @@ export default function Button(props){
         'button--logout': props.logout,
         'button--search': props.search,
         'button--comments': props.comments,
-        'button--commentsgraph': props.commentsgraph,
-        'button--tags': props.tags,
-        'button--tagsgraph': props.tagGraph, 
-        'button--barGraph': props.barGraph,
-        'button--lineGraph': props.lineGraph
+        'button--createVideo': props.createVideo
     })
     return (
        <button className = {buttonClass} 

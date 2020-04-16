@@ -28,17 +28,19 @@ export default function HomePage(props) {
           value={search}
           onChange={(event) => handleChange(event)}
         />
-        <Button
-          search
-          onClick={() => setFinalSearch(search)}>
-          BOILER
-        </Button>
-        <Button 
-          login
-          onClick={() => setCreateForm(true)}
-        >
-          Create
-        </Button>
+        <div className="homepage-buttons">
+          <Button
+            search
+            onClick={() => setFinalSearch(search)}>
+            BOILER
+          </Button>
+          <Button 
+            search
+            onClick={() => setCreateForm(true)}
+          >
+            CREATE
+          </Button>
+        </div>
       </div>
       {finalSearch != "" && <SearchResults 
                                 results={finalSearch} 

@@ -68,8 +68,8 @@
     border-color: $white-color;
     background-color: $pink-color;
     text-align: center;
-    height: 100px;
-    width: 300px;
+    height: 70px;
+    width: 250px;
     border-style: none;
     border-radius: 236.5px;
     font-size: 50px;
@@ -118,4 +118,18 @@
 }
 .button--lineGraph:active {
     background-color: orange;
+}
+.button--createVideo{
+    color: $white-color;
+    border-color: $white-color;
+    background-color: $pink-color;
+    text-align: center;
+    height: 70px;
+    width: 90%;
+    border-style: none;
+    border-radius: 236.5px;
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+    margin-top: 0.5rem;
 }

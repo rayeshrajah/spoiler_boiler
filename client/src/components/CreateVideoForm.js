@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import '../styles/CreateVideoForm.scss'
+import Button from './Button'
 
 function CreateVideoForm(props) {
   const [videoUrl, setVideoUrl] = useState("")
@@ -46,16 +47,7 @@ function CreateVideoForm(props) {
         <div></div>
       </div>
 
-      <div id="checkbox-and-add">
-        <div id="checkbox-container">
-          <input type="checkbox" id="content-creator" />
-          <label for="content-creator">Video owner?</label>
-        </div>
-        <div></div>
-        <div>
-          <button type="submit">Add Movie</button>
-        </div>
-      </div>
+        <Button createVideo type="submit">Add Movie</Button>
 
     </form>
   )
