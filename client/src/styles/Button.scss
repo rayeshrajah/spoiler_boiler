@@ -142,9 +142,12 @@
 .button--createVideo:hover {
     iframe {
         visibility: visible;
-        height: 50%;
+        height: 100%;
         width: 100%;
         border-radius: 236.5px;
+        pointer-events: none;
+        border: none;
+        outline: none;
     }
 }
 .button--createVideo:hover:before {

@@ -28,7 +28,7 @@ iframe {
     border-radius: 236.5px;
     border: none;
     width: 90%;
-    color: white;
+    color: rgb(46, 46, 46);
     
     #video-url--prepend {
       background-color: #ffbebe;
@@ -47,8 +47,9 @@ iframe {
       border: none;
       background-color: #ff5757;
       border-radius: 236.5;
-      width: 60%;
-      padding-right: 1em;
+      width: 65%;
+      padding: 0;
+      padding-left: 5px;
       text-align: center;
       font-size: 1.5em;
     }
@@ -66,7 +67,7 @@ iframe {
     border-radius: 236.5px;
     border: none;
     width: 90%;
-    color: white;
+    color: rgb(46, 46, 46);
     margin-top: 0.5em;
     
     #video-name--prepend {
@@ -85,8 +86,9 @@ iframe {
       border: none;
       background-color: #ff5757;
       border-radius: 236.5;
-      width: 60%;
-      padding-right: 1em;
+      width: 65%;
+      padding: 0;
+      padding-left: 5px;
       text-align: center;
       font-size: 1.5em;
     }
