@@ -79,6 +79,10 @@
     outline: none;
 }
 
+.button--search:hover {
+    background-color: $red-color;
+}
+
 .button--comments{
     color: $pink-color;
     border-color: $pink-color;
@@ -152,10 +156,4 @@
 }
 .button--createVideo:hover:before {
     content: "";
-}
-.button--createVideo:hover:after {
-    // content: "🔥🔥🔥🔥🔥🔥🔥🔥";
-
-    // background-image: url('https://i.gifer.com/fetch/w300-preview/d9/d9dd657cfef3fb5188596ace989a7dd7.gif');
-    // content: url("https://i.gifer.com/fetch/w300-preview/d9/d9dd657cfef3fb5188596ace989a7dd7.gif");
 }
