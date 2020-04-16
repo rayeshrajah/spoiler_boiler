@@ -8,9 +8,9 @@ import HomePage from './components/HomePage';
 
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faCaretRight, faCaretLeft);
+library.add(faArrowDown);
 
 function App() {
   const [state, setState] = useState(
@@ -36,12 +36,14 @@ function App() {
       const commentApi = axios.get('/comments')
       
       Promise.all([userApi, videoApi, commentApi])
-      .then(all => setState({
+      .then(all => {setState({
         users: all[0].data, 
         videos: all[1].data, 
         comments: all[2].data,
         isLoading: false
-        }))
+        })
+        console.log(JSON.stringify(all))})
+
       },[])
 
       function addCommentToDatabase(comment) {

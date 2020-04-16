@@ -2,6 +2,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+
+  @keyframes upDown {
+    0% {
+      
+      transform: translateY(-10px);
+   }
+   50% {
+      transform: translateY(0);
+   }
+   100%{
+    transform: translateY(-10px);
+   }
+  }
+  .down-arrow{
+    color: white;
+    height: 35px;
+    width: 35px;
+    padding: 2px;
+    position: absolute;
+    right: 10%;
+    top: 70%;
+    border-radius: 50%;
+    background-color: red;
+    animation: upDown 1s infinite;
+  }
 
   h2 {
     margin: 0.5em;
