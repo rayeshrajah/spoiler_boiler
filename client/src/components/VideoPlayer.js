@@ -1,4 +1,6 @@
 import React, { useState, useRef } from 'react'
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; // optional
 import ReactPlayer from 'react-player'
 import '../styles/VideoPlayer.scss'
 import Comments from './Comments'
@@ -17,18 +19,41 @@ function VideoPlayer(props) {
     let output = [];
     for (let i = 0; i < props.commentsApiData.length; i++) {
       if (props.commentsApiData[i].video_id === props.videoIdFocused) {
-        output.push(props.commentsApiData[i].timestamp_in_seconds)
+        output.push({
+          timestamp: props.commentsApiData[i].timestamp_in_seconds,
+          message: props.commentsApiData[i].message
+        })
       }
     }
-    return output // [12, 23, 45]
+    return output // [{timeS: 1, messg: ""}, 23, 45]
   }
+
+  let counterObj = {}
+  getCommentTimestampsByVideoId(props.videoIdFocused).forEach(item => {
+    if (!counterObj[item.timestamp]) {
+      counterObj[item.timestamp] = 1
+    } else {
+      counterObj[item.timestamp] ++
+    }
+  })
   
   // for testing purposes (harcoded to get comments from video_id 2)
   let timestampsForVideo = getCommentTimestampsByVideoId(props.videoIdFocused)
   
   let htmlForCommentTimestamps = timestampsForVideo.map((timestamp, index) => {
     return (
-      <div key={index} className="comment-ticks" style={{left: String(Math.floor((timestamp / videoDuration) * 100) + "%")}}></div>
+      <Tippy content={`${timestamp.message} @ ${timestamp.timestamp} sec`}>
+        <div 
+          key={index} 
+          className="comment-ticks" 
+          style={{
+            left: String(Math.floor((timestamp.timestamp / videoDuration) * 100) + "%"),
+            // height: (String(counterObj[timestamp.timestamp] + 10) + "px")
+            backgroundColor: (counterObj[timestamp.timestamp] > 5 ? "red" : counterObj[timestamp.timestamp] >= 3 ? "#3dd93d" : "blue")
+          }}
+        >
+        </div>
+      </Tippy>
       )
     })
 

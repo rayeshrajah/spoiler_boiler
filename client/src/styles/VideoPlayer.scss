@@ -5,7 +5,7 @@
   min-width: 500px;
 
   .video-container {
-    background-color: #C4C4C4;
+    background-color: rgb(38, 38, 38);
     width: 100%;
     max-width: 800px;
     min-width: 500px;
@@ -22,25 +22,25 @@
   .spoiler-timebar-master {
     height: 50px;
     width: 100%;
-    background-color: #E34545;
+    background-color: #000;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     .spoiler-bar {
-      height: 10px;
+      height: 20px;
       width: 90%;
-      background-color: white;
+      background-color: rgb(113, 113, 113);
       position: relative;
 
       .spoiler-time {
         height: 100%;
         width: 0%;
-        background-color: #FFC5C5;
+        background-color: rgb(255, 255, 255);
       }
       .comment-ticks {
-        height: 10px;
+        height: 100%;
         width: 3px;
         background-color: black;
         position: absolute;

@@ -29,7 +29,6 @@ export default function TagGraph(props) {
   countEachTag();
 
   let tagNameArr = Object.keys(tagObject);
-  console.log(tagNameArr);
   let tagData = {
     labels: tagNameArr,
     datasets: [
