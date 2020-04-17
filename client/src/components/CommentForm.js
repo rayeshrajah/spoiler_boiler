@@ -14,10 +14,12 @@ function CommentForm(props) {
       "message": comment,
       "timestamp_in_seconds": timestampWanted,
       "video_id": props.videoIdFocused,
-      "tag": tag, 
+      "tag": tag.toLowerCase(), 
       "user_id": props.userId
     }
     props.addCommentToDatabase(commentObj)
+    setComment("")
+    setTag("")
   }
 
   function getUserName(userData, id){
@@ -45,15 +47,22 @@ function CommentForm(props) {
                   onChange={event => setComment(event.target.value)}
                   onClick={() => setTimestampWanted(props.progressInSeconds)}
                 />
+                <div className="badge-for-user">
+                  <span id="spoil-badge" className="badge badge-success">spoil @{timestampWanted} sec</span>
+                  <span className="badge badge-danger">running @{props.progressInSeconds} sec</span>
+                </div> 
             </div>
-            <label for="tag"></label>
-            <input 
-              id="tag"
-              type="text" 
-              placeholder="Add a tag!"
-              value={tag}
-              onChange={event => setTag(event.target.value)}
-            />
+
+
+            
+              <label for="tag"></label>
+              <input 
+                id="tag"
+                type="text" 
+                placeholder="Add a tag!"
+                value={tag}
+                onChange={event => setTag(event.target.value)}
+              />
           </div>
         <button className="comment-button">SPOILER</button>
       </div>

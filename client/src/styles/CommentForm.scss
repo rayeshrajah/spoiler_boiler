@@ -4,6 +4,8 @@
   background-color: rgb(245, 130, 130);
   height: 300px;
   width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -13,6 +15,7 @@
     background-color: #ffbfbf;
     padding: 1em;
     border-radius: 20px;
+    width: 90%;
 
     ::placeholder {
       color: rgba(255, 255, 255, 0.653);
@@ -23,6 +26,17 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 1em;
+
+    .badge-for-user{
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    #spoil-badge{
+      margin-bottom: 10px;
+    }
     
     input[type="text"] {
       border-radius: 270.5px;
@@ -57,6 +71,7 @@
     line-height: 50%;
     outline: none;
   }
+
 
   #tag {
     border-radius: 270.5px;
