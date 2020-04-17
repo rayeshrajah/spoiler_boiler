@@ -127,7 +127,7 @@ function Comments(props) {
         )}
       </div>
       {tags && (
-        <Tags comments={props.comments} videoIdFocused={props.videoIdFocused} />
+        <Tags comments={props.comments} videoIdFocused={props.videoIdFocused} userId={props.userId} usersApiData={props.usersApiData} />
       )}
     </div>
   );

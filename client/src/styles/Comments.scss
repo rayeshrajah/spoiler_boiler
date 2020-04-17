@@ -1,21 +1,19 @@
 @import "./Variables.scss";
 
-
-
 .comments-master-container {
-  background-color: #FFCECE;
+  background-color: #ffcece;
   height: 400px;
   width: 100%;
   overflow: scroll;
 
   @keyframes fadeInLeft {
     0% {
-       opacity: 0;
-       transform: translateX(-200px);
+      opacity: 0;
+      transform: translateX(-200px);
     }
     100% {
-       opacity: 1;
-       transform: translateX(0);
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 
@@ -24,6 +22,10 @@
     justify-content: space-evenly;
     margin: 1em;
     animation: fadeInLeft 1s;
+    
+    #avatar-image {
+      margin-right: 20px;
+    }
     
     p {
       border-radius: 270.5px;
@@ -34,7 +36,6 @@
       background-color: white;
       text-align: center;
       padding: 0 10px;
-
     }
 
     .timestamp-badge-container {
@@ -52,19 +53,16 @@
       height: 60px;
       border-radius: 50%;
     }
-
-
-
   }
-  .component-buttons{
+  .component-buttons {
     margin-top: 0.7em;
-    display:flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     outline: none;
     border: none;
   }
-  .icon-button{
+  .icon-button {
     background: none;
     border-style: none;
     outline: none;
@@ -76,7 +74,7 @@
     background-color: $white-color;
     height: 50px;
     border-radius: 1rem;
-    outline: 0!important;
+    outline: 0 !important;
     width: 100px;
   }
 }

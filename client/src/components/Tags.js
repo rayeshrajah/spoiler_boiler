@@ -1,10 +1,21 @@
 import React, { useState, useRef } from 'react'
 import '../styles/Tags.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Avatar from 'react-avatar'
 
 function Tags(props) {
   const [tag, setTag] = useState("")
   const [clicked, setClicked] = useState(false)
+
+  function getUserName(userData, id){
+    for(let i = 0; i < userData.length; i++){
+      if(userData[i].id === id){
+        return userData[i].name;
+      }
+    }
+  }
+
+  
   
   let allComments = [...props.comments]
   let videoIdFocused = props.videoIdFocused
@@ -51,13 +62,16 @@ function Tags(props) {
   })
   
   // [html, html .....]
+  console.log(showCommentsByTagName(videoIdFocused, tag))
   let htmlForTaggedComments = showCommentsByTagName(videoIdFocused, tag).map((comment, index) => {
     return (
       <div 
       className="individual-comment" 
       > 
-          <img id="user-avatar" src="https://www.placecage.com/300/300"/>
-          <p>{comment.message}</p>
+        <div id="avatar-image">
+          <Avatar name={getUserName(props.usersApiData, comment.user_id)} size={60} round={true}/>
+        </div>
+        <p>{comment.message}</p>
       </div>
     )
   })
