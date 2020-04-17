@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Avatar from 'react-avatar'
 import '../styles/CommentForm.scss'
 
 function CommentForm(props) {
@@ -23,7 +24,8 @@ function CommentForm(props) {
       <div className="comment-form-master-container">
           <div class="user-input-container">
             <div className="comment-form"> 
-                <img src="https://www.placecage.com/300/300"/>
+                {/* <img src="https://www.placecage.com/300/300"/> */}
+                <Avatar name="foo bar" size={60} round={true}/>
                 <label for="comment"></label>
                 <input 
                   id="comment"
