@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_152821) do
+ActiveRecord::Schema.define(version: 2020_04_17_202333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,8 +31,6 @@ ActiveRecord::Schema.define(version: 2020_04_10_152821) do
     t.string "name"
     t.string "email"
     t.string "password"
-    t.string "avatar_image"
-    t.boolean "is_content_creator"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,9 +38,6 @@ ActiveRecord::Schema.define(version: 2020_04_10_152821) do
   create_table "videos", force: :cascade do |t|
     t.string "video_url"
     t.string "name"
-    t.string "thumbnail"
-    t.text "description"
-    t.string "url_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
