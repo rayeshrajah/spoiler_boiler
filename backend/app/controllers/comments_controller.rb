@@ -15,6 +15,6 @@ class CommentsController < ApplicationController
     
     private 
     def comment_params 
-        params.require(:comment).permit(:message, :timestamp_in_seconds, :video_id, :tag)
+        params.require(:comment).permit(:message, :timestamp_in_seconds, :video_id, :tag, :user_id)
     end
 end

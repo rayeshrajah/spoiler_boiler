@@ -25,6 +25,7 @@ function App() {
   const [videoUrl, setVideoUrl] = useState("")
   const [videoIdFocused, setVideoIdFocused] = useState()
   const [showVideoPlayer, setShowVideoPlayer] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState()
 
   const {users, videos, comments, isLoading} = state
   let commentTimestamps = [];
@@ -73,17 +74,19 @@ function App() {
 
     return (
       <div>
-        <Navbar />
+        <Navbar loggedIn={setIsLoggedIn} />
         <HomePage 
           videosApiData={videos}
           focusedVideo={setVideoUrl}
           videoIdFocused={setVideoIdFocused}
           addVideoToDatabase={addVideoToDatabase}
           showVideoPlayer={setShowVideoPlayer}
+          
         />
 
         <div className="entire-video-component">
           {(!isLoading && showVideoPlayer) && <VideoPlayer 
+            userId={isLoggedIn}
             usersApiData={users} 
             commentsApiData={state.comments} 
             comments={state.comments}

@@ -13,8 +13,10 @@ export default function LoginForm(props) {
          .then( (response) => {
              let data = response.data
              data.forEach(element => {
-                 if(element.email === email && element.password === password)
-                 setUserInfoFound(true)
+                 if(element.email === email && element.password === password){
+                   setUserInfoFound(true)
+                   props.loggedIn(element.id)
+                 }
                 });
             })
             .catch(error => console.log(error))

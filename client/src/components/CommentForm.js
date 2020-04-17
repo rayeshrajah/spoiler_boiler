@@ -14,18 +14,28 @@ function CommentForm(props) {
       "message": comment,
       "timestamp_in_seconds": timestampWanted,
       "video_id": props.videoIdFocused,
-      "tag": tag 
+      "tag": tag, 
+      "user_id": props.userId
     }
     props.addCommentToDatabase(commentObj)
   }
 
+  function getUserName(userData, id){
+    for(let i = 0; i < userData.length; i++){
+      if(userData[i].id === id){
+        return userData[i].name;
+      }
+    }
+  }
+
+  console.log("This is a user name: ", getUserName(props.usersApiData, props.userId))
   return (
     <form onSubmit={handleSubmit}>
       <div className="comment-form-master-container">
           <div class="user-input-container">
             <div className="comment-form"> 
                 {/* <img src="https://www.placecage.com/300/300"/> */}
-                <Avatar name="foo bar" size={60} round={true}/>
+                <Avatar name={getUserName(props.usersApiData, props.userId)} size={60} round={true}/>
                 <label for="comment"></label>
                 <input 
                   id="comment"

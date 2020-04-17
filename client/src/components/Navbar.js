@@ -4,7 +4,7 @@ import Button  from './Button'
 import SignupForm from './SignupForm'
 import LoginForm from './LoginForm'
 
-export default function Navbar(){
+export default function Navbar(props){
     const [displaySignup, setDisplaySignup] = useState(false)
     const [displayLogin, setDisplayLogin] = useState(false)
     const [buttonDisplay, setButtonDisplay] = useState(true)
@@ -40,7 +40,7 @@ export default function Navbar(){
     <a>{buttonDisplay && <Button signup onClick={signup}>Sign-up</Button>}</a>
     </div>
     </nav>
-    {displayLogin && !displaySignup && <LoginForm displayButton={setButtonDisplay} displayState={setDisplayLogin}/>}
+    {displayLogin && !displaySignup && <LoginForm displayButton={setButtonDisplay} displayState={setDisplayLogin} loggedIn={props.loggedIn}/>}
     {displaySignup && !displayLogin && <SignupForm displayButton={setButtonDisplay} displayState={setDisplaySignup}/>}
     </div>
     );

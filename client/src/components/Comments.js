@@ -3,8 +3,7 @@ import "../styles/Comments.scss";
 import CommentsGraph from "./CommentsGraph";
 import Tags from "./Tags";
 import TagGraph from "./TagGraph";
-import Button from "./Button";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Avatar from 'react-avatar'
 
 function Comments(props) {
   const [showComponents, setShowComponents] = useState({
@@ -21,6 +20,7 @@ function Comments(props) {
         let commentAndTimestamp = {
           comment: props.comments[i].message,
           timestamp: props.comments[i].timestamp_in_seconds,
+          user_id: props.comments[i].user_id
         };
         output.push(commentAndTimestamp);
       }
@@ -28,11 +28,20 @@ function Comments(props) {
     return output; // [{comment:"sadasd", timesamp: 12}, {comment:"sadasd", timesamp: 20} ]
   }
 
+  function getUserName(userData, id){
+    for(let i = 0; i < userData.length; i++){
+      if(userData[i].id === id){
+        return userData[i].name;
+      }
+    }
+  }
+
   let isolatedVideo = getCommentTimestampsByVideoId(props.videoIdFocused);
 
   let commentsSortedByTimeDescending = isolatedVideo.sort(
     (a, b) => b.timestamp - a.timestamp
   );
+    console.log(commentsSortedByTimeDescending)
   let htmlForCommentMessages = commentsSortedByTimeDescending.map(
     (message, index) => {
       return (
@@ -45,7 +54,7 @@ function Comments(props) {
               : { display: "none" }
           }
         >
-          <img src="https://www.placecage.com/300/300" />
+          <Avatar name={getUserName(props.usersApiData, message.user_id)} size={60} round={true}/>
           <p>{message.comment}</p>
           <div className="timestamp-badge-container">
           <span id="timestamp-badge" className="badge badge-danger">@{message.timestamp} sec</span>

@@ -100,9 +100,13 @@ function VideoPlayer(props) {
         comments={props.comments} // [{}, {}]
         progressInSeconds={progressInSeconds}
         videoIdFocused={props.videoIdFocused}
+        userId={props.userId}
+        usersApiData={props.usersApiData}
         />
 
       <CommentForm 
+        userId={props.userId}
+        usersApiData={props.usersApiData}
         videoIdFocused={props.videoIdFocused}
         progressInSeconds={progressInSeconds} 
         addCommentToDatabase={props.addCommentToDatabase}
