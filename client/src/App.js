@@ -21,6 +21,7 @@ function App() {
       isLoading: true
     }
   )
+  console.log(state)
   
   const [videoUrl, setVideoUrl] = useState("")
   const [videoIdFocused, setVideoIdFocused] = useState()
@@ -74,7 +75,7 @@ function App() {
 
     return (
       <div>
-        <Navbar loggedIn={setIsLoggedIn} />
+        <Navbar loggedIn={setIsLoggedIn} newUser={setState} oldUser={state} />
         <HomePage 
           videosApiData={videos}
           focusedVideo={setVideoUrl}

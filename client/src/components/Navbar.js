@@ -41,7 +41,7 @@ export default function Navbar(props){
     </div>
     </nav>
     {displayLogin && !displaySignup && <LoginForm displayButton={setButtonDisplay} displayState={setDisplayLogin} loggedIn={props.loggedIn}/>}
-    {displaySignup && !displayLogin && <SignupForm displayButton={setButtonDisplay} displayState={setDisplaySignup}/>}
+    {displaySignup && !displayLogin && <SignupForm displayButton={setButtonDisplay} displayState={setDisplaySignup} loggedIn={props.loggedIn} newUser={props.newUser} oldUser={props.oldUser}/>}
     </div>
     );
 }
