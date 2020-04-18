@@ -39,6 +39,11 @@ function CommentForm(props) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="comment-form-master-container">
+      {spoilerClicked &&
+            <div>
+              <FontAwesomeIcon icon="comment-medical" className="message-icon"/>
+            </div>}
+      {(tag.length >= 3 && tag.length <= 9) && comment && <button className="comment-button" onClick={() =>  setSpoilerClicked(true)}>SPOILER</button>}
           <div class="user-input-container">
             <div className="comment-form"> 
                 {/* <img src="https://www.placecage.com/300/300"/> */}
@@ -68,12 +73,8 @@ function CommentForm(props) {
               />
           </div>
           
-            {spoilerClicked &&
-            <div>
-              <FontAwesomeIcon icon="comment-medical" className="message-icon"/>
-            </div>}
+
        
-        {(tag.length >= 3 && tag.length <= 9) && comment && <button className="comment-button" onClick={() =>  setSpoilerClicked(true)}>SPOILER</button>}
       </div>
     </form>
   )
