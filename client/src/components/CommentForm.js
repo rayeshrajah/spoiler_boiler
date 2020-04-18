@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Avatar from 'react-avatar'
 import '../styles/CommentForm.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function CommentForm(props) {
-  
   const [comment, setComment] = useState("");
   const [tag, setTag] = useState("");
+  const [spoilerClicked, setSpoilerClicked] = useState(false)
   const [timestampWanted, setTimestampWanted] = useState(0)
   
   const handleSubmit = (event) => {
@@ -20,6 +21,10 @@ function CommentForm(props) {
     props.addCommentToDatabase(commentObj)
     setComment("")
     setTag("")
+    
+    setTimeout(() => {
+      setSpoilerClicked(false)
+    }, 5000);
   }
 
   function getUserName(userData, id){
@@ -29,7 +34,7 @@ function CommentForm(props) {
       }
     }
   }
-
+  
   console.log("This is a user name: ", getUserName(props.usersApiData, props.userId))
   return (
     <form onSubmit={handleSubmit}>
@@ -52,8 +57,6 @@ function CommentForm(props) {
                   <span className="badge badge-danger">running @{props.progressInSeconds} sec</span>
                 </div> 
             </div>
-
-
             
               <label for="tag"></label>
               <input 
@@ -64,7 +67,13 @@ function CommentForm(props) {
                 onChange={event => setTag(event.target.value)}
               />
           </div>
-        <button className="comment-button">SPOILER</button>
+          
+            {spoilerClicked &&
+            <div>
+              <FontAwesomeIcon icon="thumbs-up" className="message-icon"/>
+            </div>}
+       
+        {(tag.length >= 3 && tag.length <= 9) && comment && <button className="comment-button" onClick={() =>  setSpoilerClicked(true)}>SPOILER</button>}
       </div>
     </form>
   )

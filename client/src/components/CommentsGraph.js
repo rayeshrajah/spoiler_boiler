@@ -91,7 +91,7 @@ export default function CommentsGraph(props) {
                   color: "transparent",
                   display: true,
                   drawBorder: false,
-                  zeroLineColor: "#fff",
+                  zeroLineColor: "#000",
                   zeroLineWidth: 5
                 },
                 ticks: {

@@ -1,8 +1,43 @@
 @import './Variables.scss';
 
+
+
+@keyframes fadeOutTop {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(20px);
+  }
+  20% {
+    transform: translateY(10px);
+  }
+  30% {
+    transform: translateY(5px);
+  }
+  70% {
+    transform: translateY(3px);
+  }
+  80% {
+    transform: translateY(-15px);
+  }
+  90% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(-200px);
+  }
+}
+
+.message-icon{
+  font-size: 500px;
+  margin-top: 10px;
+  animation: fadeOutTop 5s infinite;
+}
+
 .comment-form-master-container {
   background-color: rgb(245, 130, 130);
-  height: 300px;
+  height: 100%;
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -16,6 +51,7 @@
     padding: 1em;
     border-radius: 20px;
     width: 90%;
+    //animation: fadeOutTop 5s;
 
     ::placeholder {
       color: rgba(255, 255, 255, 0.653);
@@ -70,6 +106,13 @@
     font-weight: 500;
     line-height: 50%;
     outline: none;
+    margin: 20px 0;
+  }
+
+  .comment-button:hover{
+    background-color: red;
+    color: white;
+    box-shadow: 0px 2px 5px black;
   }
 
 
@@ -83,7 +126,7 @@
     border: none;
     outline: none;
     color: $red-color;
-    margin-left: 88px;
+    margin-left: 21%;
     margin-bottom: 0.3em;
   }
 }

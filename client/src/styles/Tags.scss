@@ -6,17 +6,53 @@
 
   @keyframes upDown {
     0% {
-      
+      opacity: 0;
       transform: translateY(-10px);
    }
-   50% {
+   10%{
+    opacity: 1;
       transform: translateY(0);
    }
+   20%{
+    opacity: 1;
+      transform: translateY(-10px);
+   }
+   30%{
+    opacity: 1;
+      transform: translateY(0);
+   }
+   40%{
+    opacity: 1;
+      transform: translateY(-10px);
+   }
+   50%{
+    opacity: 1;
+      transform: translateY(0);
+   }
+   60%{
+    opacity: 1;
+      transform: translateY(-10px);
+   }
+   70%{
+    opacity: 1;
+      transform: translateY(0);
+   }
+   80% {
+    opacity: 1;
+      transform: translateY(-10px);
+   }
+   90%{
+    opacity: 0.5;
+    transform: translateY(0);
+   }
    100%{
+    opacity: 0;
     transform: translateY(-10px);
    }
   }
+  
   .down-arrow{
+    opacity: 0;
     color: white;
     height: 35px;
     width: 35px;
@@ -26,7 +62,9 @@
     top: 270px;
     border-radius: 50%;
     background-color: red;
-    animation: upDown 1s infinite;
+    //transition: opacity 4s ease-out;
+    animation-iteration-count: 1;
+    animation: upDown 5s linear;
   }
 
   h2 {

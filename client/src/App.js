@@ -8,9 +8,9 @@ import HomePage from './components/HomePage';
 
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faArrowDown);
+library.add(faArrowDown, faThumbsUp);
 
 function App() {
   const [state, setState] = useState(

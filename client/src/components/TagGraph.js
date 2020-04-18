@@ -74,7 +74,7 @@ export default function TagGraph(props) {
                 color: "transparent",
                 display: true,
                 drawBorder: false,
-                zeroLineColor: "#fff",
+                zeroLineColor: "#000",
                 zeroLineWidth: 5
               },
               ticks: {
