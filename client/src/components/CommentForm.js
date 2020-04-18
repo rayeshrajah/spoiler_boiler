@@ -24,7 +24,7 @@ function CommentForm(props) {
     
     setTimeout(() => {
       setSpoilerClicked(false)
-    }, 5000);
+    }, 1500);
   }
 
   function getUserName(userData, id){
@@ -39,6 +39,11 @@ function CommentForm(props) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="comment-form-master-container">
+      {spoilerClicked &&
+            <div>
+              <FontAwesomeIcon icon="comment-medical" className="message-icon"/>
+            </div>}
+      {(tag.length >= 3 && tag.length <= 9) && comment && <button className="comment-button" onClick={() =>  setSpoilerClicked(true)}>SPOILER</button>}
           <div class="user-input-container">
             <div className="comment-form"> 
                 {/* <img src="https://www.placecage.com/300/300"/> */}
@@ -47,7 +52,7 @@ function CommentForm(props) {
                 <input 
                   id="comment"
                   type="text" 
-                  placeholder={`Spoil something @ ${props.progressInSeconds} seconds!`}
+                  placeholder={`Spoil @ ${props.progressInSeconds} seconds`}
                   value={comment}
                   onChange={event => setComment(event.target.value)}
                   onClick={() => setTimestampWanted(props.progressInSeconds)}
@@ -62,18 +67,14 @@ function CommentForm(props) {
               <input 
                 id="tag"
                 type="text" 
-                placeholder="Add a tag!"
+                placeholder="Add a tag"
                 value={tag}
                 onChange={event => setTag(event.target.value)}
               />
           </div>
           
-            {spoilerClicked &&
-            <div>
-              <FontAwesomeIcon icon="thumbs-up" className="message-icon"/>
-            </div>}
+
        
-        {(tag.length >= 3 && tag.length <= 9) && comment && <button className="comment-button" onClick={() =>  setSpoilerClicked(true)}>SPOILER</button>}
       </div>
     </form>
   )
