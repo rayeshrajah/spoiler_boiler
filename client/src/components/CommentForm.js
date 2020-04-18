@@ -24,7 +24,7 @@ function CommentForm(props) {
     
     setTimeout(() => {
       setSpoilerClicked(false)
-    }, 5000);
+    }, 1500);
   }
 
   function getUserName(userData, id){
@@ -70,7 +70,7 @@ function CommentForm(props) {
           
             {spoilerClicked &&
             <div>
-              <FontAwesomeIcon icon="thumbs-up" className="message-icon"/>
+              <FontAwesomeIcon icon="comment-medical" className="message-icon"/>
             </div>}
        
         {(tag.length >= 3 && tag.length <= 9) && comment && <button className="comment-button" onClick={() =>  setSpoilerClicked(true)}>SPOILER</button>}

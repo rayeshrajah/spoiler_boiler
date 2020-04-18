@@ -4,35 +4,24 @@
 
 @keyframes fadeOutTop {
   0% {
-    transform: translateY(0);
-  }
-  10% {
-    transform: translateY(20px);
-  }
-  20% {
-    transform: translateY(10px);
-  }
-  30% {
-    transform: translateY(5px);
-  }
-  70% {
-    transform: translateY(3px);
+    transform: translateY(0) scale(1);
   }
   80% {
-    transform: translateY(-15px);
+    transform: translateY(-370px) scale(1.5);
   }
-  90% {
-    transform: translateY(-50px);
+  95% {
+    transform: translateY(-400px) scale(3);
   }
   100% {
-    transform: translateY(-200px);
+    transform: translateY(-350px) scale(0);
   }
 }
 
 .message-icon{
-  font-size: 500px;
+  color: #68ae3e;
+  font-size: 50px;
   margin-top: 10px;
-  animation: fadeOutTop 5s infinite;
+  animation: fadeOutTop 1.5s ease-in-out;
 }
 
 .comment-form-master-container {
