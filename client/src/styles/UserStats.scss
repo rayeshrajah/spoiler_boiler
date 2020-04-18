@@ -1,12 +1,22 @@
+@keyframes fadeInTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 .user-stats{
     display: flex;
     justify-content: flex-end;
     color: white;
     font-weight: bold;
     font-size: 20px; 
-    
+    animation: fadeInTop 1s;
     p{
-        background-color: rgb(53, 58, 64);
+        background-color: #FF7878;
         padding: 10px;
         margin: 0 33px;
         border-radius: 40px;
