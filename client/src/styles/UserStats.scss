@@ -1,11 +1,11 @@
 @keyframes fadeInTop {
     0% {
       opacity: 0;
-      transform: translateY(-100px);
+      transform: translateX(100px);
     }
     100% {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateX(0);
     }
   }
 .user-stats{
@@ -17,7 +17,7 @@
     animation: fadeInTop 1s;
     p{
         background-color: #FF7878;
-        padding: 10px;
+        padding: 3px 20px;
         margin: 0 33px;
         border-radius: 40px;
     }
