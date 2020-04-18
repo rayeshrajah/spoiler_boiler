@@ -47,7 +47,7 @@ function CommentForm(props) {
                 <input 
                   id="comment"
                   type="text" 
-                  placeholder={`Spoil something @ ${props.progressInSeconds} seconds!`}
+                  placeholder={`Spoil @ ${props.progressInSeconds} seconds`}
                   value={comment}
                   onChange={event => setComment(event.target.value)}
                   onClick={() => setTimestampWanted(props.progressInSeconds)}
@@ -62,7 +62,7 @@ function CommentForm(props) {
               <input 
                 id="tag"
                 type="text" 
-                placeholder="Add a tag!"
+                placeholder="Add a tag"
                 value={tag}
                 onChange={event => setTag(event.target.value)}
               />
