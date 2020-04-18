@@ -13,6 +13,7 @@ function Comments(props) {
     tagGraph: true
   });
   const { commentsMessage, tags, commentGraph, tagGraph } = showComponents;
+  
   function getCommentTimestampsByVideoId(id) {
     let output = [];
     for (let i = 0; i < props.comments.length; i++) {

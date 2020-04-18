@@ -71,11 +71,15 @@ function App() {
         })
       }
 
-      // console.log(comments)
-
     return (
       <div>
-        <Navbar loggedIn={setIsLoggedIn} newUser={setState} oldUser={state} />
+        <Navbar 
+          loggedIn={setIsLoggedIn} 
+          newUser={setState} 
+          oldUser={state} 
+          userId={isLoggedIn} 
+          comments={state.comments}
+          />
         <HomePage 
           videosApiData={videos}
           focusedVideo={setVideoUrl}
