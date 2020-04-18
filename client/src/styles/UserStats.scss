@@ -1,0 +1,14 @@
+.user-stats{
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    font-weight: bold;
+    font-size: 20px; 
+    
+    p{
+        background-color: rgb(53, 58, 64);
+        padding: 10px;
+        margin: 0 33px;
+        border-radius: 40px;
+    }
+}

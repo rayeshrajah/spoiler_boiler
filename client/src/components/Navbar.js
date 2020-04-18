@@ -29,9 +29,10 @@ export default function Navbar(props){
     }
     function logout(){
         setButtonDisplay(true)
+        setUserStats(false)
     }
     function showUserStats(){
-        setUserStats(true)
+        setUserStats(!userStats)
     }
     
 
@@ -48,7 +49,7 @@ export default function Navbar(props){
     </nav>
     {displayLogin && !displaySignup && <LoginForm displayButton={setButtonDisplay} displayState={setDisplayLogin} loggedIn={props.loggedIn}/>}
     {displaySignup && !displayLogin && <SignupForm displayButton={setButtonDisplay} displayState={setDisplaySignup} loggedIn={props.loggedIn} newUser={props.newUser} oldUser={props.oldUser}/>}
-    {setUserStats &&  <UserStats userId={props.userId} comments={props.comments}/>}
+    {userStats &&  <UserStats userId={props.userId} comments={props.comments}/>}
     </div>
     );
 }
