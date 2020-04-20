@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from 'axios'
 import Button from './Button'
 import '../styles/Form.scss'
@@ -30,7 +30,7 @@ export default function LoginForm(props) {
     <form onSubmit={(event) => event.preventDefault()}>
       <section className="user-form">
         <div class="form-group">
-          <label for="InputEmail" class="email-label">
+          <label for="InputEmail" className="email-label">
             Email address:
         </label>
           <input

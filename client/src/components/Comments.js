@@ -42,7 +42,7 @@ function Comments(props) {
   let commentsSortedByTimeDescending = isolatedVideo.sort(
     (a, b) => b.timestamp - a.timestamp
   );
-    console.log(commentsSortedByTimeDescending)
+  
   let htmlForCommentMessages = commentsSortedByTimeDescending.map(
     (message, index) => {
       return (

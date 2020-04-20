@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactPlayer from "react-player";
 import "../styles/SearchResults.scss";
 
@@ -32,7 +32,6 @@ export default function SearchResults(props) {
           light={true}
           onClick={() => {
             focusVideo(video)
-            console.log("before show vdeio player", props.showVideoPlayerState)
             props.showVideoPlayer(true)
           }}
         />
@@ -52,7 +51,6 @@ export default function SearchResults(props) {
           light={true}
           onClick={() => {
             focusVideo(video)
-            console.log("before show vdeio player", props.showVideoPlayerState)
             props.showVideoPlayer(true)
           }}
         />

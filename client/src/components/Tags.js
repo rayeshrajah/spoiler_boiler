@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import '../styles/Tags.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Avatar from 'react-avatar'
@@ -61,8 +61,6 @@ function Tags(props) {
     )
   })
   
-  // [html, html .....]
-  console.log(showCommentsByTagName(videoIdFocused, tag))
   let htmlForTaggedComments = showCommentsByTagName(videoIdFocused, tag).map((comment, index) => {
     return (
       <div 
@@ -76,10 +74,6 @@ function Tags(props) {
     )
   })
 
-  
-    
-  
-  //console.log(htmlForTaggedComments)
   return (
     <div className="tag-master-container">
       <h2>Tags</h2>

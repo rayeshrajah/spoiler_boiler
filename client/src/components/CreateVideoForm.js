@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import axios from 'axios'
 import '../styles/CreateVideoForm.scss'
 import Button from './Button'
 
@@ -50,7 +49,8 @@ function CreateVideoForm(props) {
       </div>
 
         <Button createVideo type="submit" className="button-submit">
-            <iframe 
+            <iframe
+              title="flame-gif" 
               src="https://gifer.com/embed/GlIU"
               id="fire-gif"
             >

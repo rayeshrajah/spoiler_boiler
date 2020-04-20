@@ -9,7 +9,6 @@ import CommentForm from './CommentForm'
 function VideoPlayer(props) {
   const [progress, setProgress] = useState("")
   const [progressInSeconds, setProgressInSeconds] = useState(0)
-  const [timestamp, setTimestamp] = useState(props.commentTimestamps)
   const [videoDuration, setVideoDuration] = useState(0)
   const reactPlayerLib = useRef(null)
 
@@ -42,7 +41,7 @@ function VideoPlayer(props) {
   
   let htmlForCommentTimestamps = timestampsForVideo.map((timestamp, index) => {
     return (
-      <Tippy content={`${timestamp.message} @ ${timestamp.timestamp} sec`}>
+      <Tippy key={index} content={`${timestamp.message} @ ${timestamp.timestamp} sec`}>
         <div 
           key={index} 
           className="comment-ticks" 

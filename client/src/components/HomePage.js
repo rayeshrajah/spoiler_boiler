@@ -9,8 +9,6 @@ export default function HomePage(props) {
   const [finalSearch, setFinalSearch] = useState("")
   const [show, setShow] = useState(true)
   const [createForm, setCreateForm] = useState(false)
-  /*Ask mentor tommmorow about this situation */
-  //console.log('this is the final search: ', finalSearch)
 
   function handleChange(event) {
     setSearch(event.target.value)
@@ -45,7 +43,7 @@ export default function HomePage(props) {
           </Button>
         </div>
       </div>
-      {finalSearch != "" && <SearchResults 
+      {finalSearch !== "" && <SearchResults 
                                 results={finalSearch} 
                                 videosApi={props.videosApiData} 
                                 focusedVideo={props.focusedVideo}

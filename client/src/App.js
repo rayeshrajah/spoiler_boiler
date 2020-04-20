@@ -21,7 +21,6 @@ function App() {
       isLoading: true
     }
   )
-  console.log(state)
   
   const [videoUrl, setVideoUrl] = useState("")
   const [videoIdFocused, setVideoIdFocused] = useState()

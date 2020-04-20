@@ -35,7 +35,6 @@ function CommentForm(props) {
     }
   }
   
-  console.log("This is a user name: ", getUserName(props.usersApiData, props.userId))
   return (
     <form onSubmit={handleSubmit}>
       <div className="comment-form-master-container">
@@ -44,7 +43,7 @@ function CommentForm(props) {
               <FontAwesomeIcon icon="comment-medical" className="message-icon"/>
             </div>}
       {(tag.length >= 3 && tag.length <= 9) && comment && <button className="comment-button" onClick={() =>  setSpoilerClicked(true)}>SPOILER</button>}
-          <div class="user-input-container">
+          <div className="user-input-container">
             <div className="comment-form"> 
                 {/* <img src="https://www.placecage.com/300/300"/> */}
                 <Avatar name={getUserName(props.usersApiData, props.userId)} size={60} round={true}/>
@@ -72,9 +71,6 @@ function CommentForm(props) {
                 onChange={event => setTag(event.target.value)}
               />
           </div>
-          
-
-       
       </div>
     </form>
   )
