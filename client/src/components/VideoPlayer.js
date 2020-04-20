@@ -48,7 +48,7 @@ function VideoPlayer(props) {
           style={{
             left: String(Math.floor((timestamp.timestamp / videoDuration) * 100) + "%"),
             // height: (String(counterObj[timestamp.timestamp] + 10) + "px")
-            backgroundColor: (counterObj[timestamp.timestamp] > 5 ? "red" : counterObj[timestamp.timestamp] >= 3 ? "#3dd93d" : "blue")
+            backgroundColor: (counterObj[timestamp.timestamp] >= 3 ? "red" : counterObj[timestamp.timestamp] >= 2 ? "#3dd93d" : "blue")
           }}
         >
         </div>
