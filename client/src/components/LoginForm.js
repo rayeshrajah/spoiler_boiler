@@ -24,8 +24,6 @@ export default function LoginForm(props) {
       .catch(error => console.log(error))
   }
 
-
-
   return (
     <form onSubmit={(event) => event.preventDefault()}>
       <section className="user-form">

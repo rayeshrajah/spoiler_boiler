@@ -8,6 +8,8 @@ let filteredComments = props.comments.filter(
     (comment) => comment.user_id === props.userId
     );
 
+let filteredVideos = props.videosApiData.filter(video => video.user_id === props.userId);
+
 function filteredCommentsByTag(){
     filteredComments.forEach(element => {
         filteredTagObj[element.tag] = 1
@@ -20,7 +22,7 @@ let TagCount = Object.keys(filteredTagObj).length
 
   return (
     <div class="user-stats">
-     <p>Comments Made: {filteredComments.length}<br></br> Unique Tags: {TagCount}</p>
+     <p>Comments Made: {filteredComments.length}<br></br> Unique Tags: {TagCount} <br></br> Uploaded Videos: {filteredVideos.length} </p>
     </div>
   );
 }

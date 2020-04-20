@@ -78,6 +78,7 @@ function App() {
           oldUser={state} 
           userId={isLoggedIn} 
           comments={state.comments}
+          videosApiData={videos}
           />
         <HomePage 
           videosApiData={videos}
