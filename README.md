@@ -2,6 +2,11 @@
 
 Spoiler Boiler is app where you can leave comments at specific timestamps and view statistics on a video.
 
+## Authors
+* [Eric Lombardo](https://github.com/Eric-Lombardo) 
+
+* [Rayesh Rajah](https://github.com/rayeshrajah)
+
 ## Tech-Stacks
 #### Back-end:
 * Rails
