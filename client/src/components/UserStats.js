@@ -22,7 +22,7 @@ let TagCount = Object.keys(filteredTagObj).length
 
   return (
     <div class="user-stats">
-     <p>Comments Made: {filteredComments.length}<br></br> Unique Tags: {TagCount} <br></br> Uploaded Videos: {filteredVideos.length} </p>
+     <p>Comments Made: {filteredComments.length}<br></br> Unique Tags: {TagCount}</p>
     </div>
   );
 }
