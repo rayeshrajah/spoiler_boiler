@@ -12,7 +12,7 @@
     "@tippyjs/react": "^4.0.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "classnames": "^2.2.6",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
